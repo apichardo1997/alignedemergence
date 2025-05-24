@@ -2236,3 +2236,27 @@ a.read-more:hover {
 }
 
 /* ─────────────────────────────────────────────────────────── */
+/* ───────────── Video Wrapper ───────────── */
+/* makes the container relative so the button can position absolutely */
+.video-wrapper {
+  position: relative;
+}
+
+/* ───────────── Unmute Button ───────────── */
+.unmute-btn {
+  position: absolute;       /* anchor relative to .video-wrapper */
+  bottom: 1rem;             /* 1rem up from the bottom edge */
+  right: 1rem;              /* 1rem in from the right edge */
+  background: rgba(0, 0, 0, 0.6); /* semi-transparent black */
+  color: #fff;              /* white text */
+  border: none;             /* remove default button border */
+  padding: 0.5rem 1rem;     /* comfortable tap area */
+  border-radius: 0.25rem;   /* slightly rounded corners */
+  cursor: pointer;          /* pointer cursor on hover */
+  z-index: 10;              /* sit on top of the iframe */
+  font-size: 1rem;          /* readable font size */
+  transition: background 0.2s ease; /* subtle hover effect */
+}
+.unmute-btn:hover {
+  background: rgba(0, 0, 0, 0.8); /* darken on hover */
+}
