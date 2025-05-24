@@ -1,39 +1,49 @@
+{% include calculate_relative_base.html %}
+
 <div class="recent-box">
   <h2 class="page-subtitle">Recent posts</h2>
-  <div class="recent-list grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+  <div class="recent-list">
+    {% for post in site.posts offset:0 limit:4 %}
+      {% if post.title %}
+        <div class="recent-item">
+          {% include escape-404.html %}
+          {% include remove_double_slash.html %}
 
-    {% for post in site.posts limit:4 %}
-      <div class="recent-item bg-cream rounded-2xl overflow-hidden shadow-sm">
-        <a href="{{ post.url | relative_url }}">
-          <img
-            src="{{ '/assets/img/' | append: post.img | relative_url }}"
-            alt="{{ post.title }}"
-            class="w-full h-48 object-cover"
-          >
-        </a>
-        <div class="p-4">
-          <div class="flex items-center text-sm text-gray-600 mb-2">
-            {% if post.categories %}
-              <span class="px-2 py-1 bg-white rounded-full text-xs font-semibold text-gray-700">
-                {{ post.categories[0] | capitalize }}
+          <!-- image link -->
+          <a href="{{ post_url }}"
+             class="recent-item-img"
+             style="background:
+               url('{{ relativebase }}assets/img/{{ post.img }}')
+               center no-repeat;
+               background-size: cover;">
+          </a>
+
+          <!-- title + meta -->
+          <div class="recent-item-info">
+            <h3 class="recent-item-title">
+              <a href="{{ post_url }}">{{ post.title }}</a>
+            </h3>
+            <div class="recent-item-meta">
+              <!-- date -->
+              <span class="post-date">
+                {{ post.date | date: "%d %b, %Y" }}
               </span>
-              <span class="mx-2">&bull;</span>
-            {% endif %}
-            <time datetime="{{ post.date | date_to_xmlschema }}">
-              {{ post.date | date: "%d %b, %Y" }}
-            </time>
+              <!-- category (first only) -->
+              {% if post.categories %}
+                <span class="post-tag">
+                  {{ post.categories[0] | capitalize }}
+                </span>
+              {% endif %}
+              <!-- author -->
+              {% if post.author %}
+                <span class="post-author">
+                  By {{ post.author }}
+                </span>
+              {% endif %}
+            </div>
           </div>
-          <h3 class="text-lg font-serif font-semibold mb-1">
-            <a href="{{ post.url | relative_url }}" class="hover:underline">
-              {{ post.title }}
-            </a>
-          </h3>
-          {% if post.author %}
-            <p class="text-sm text-gray-500">By {{ post.author }}</p>
-          {% endif %}
         </div>
-      </div>
+      {% endif %}
     {% endfor %}
-
   </div>
 </div>
