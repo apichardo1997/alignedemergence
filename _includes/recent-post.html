@@ -1,41 +1,39 @@
 {% include calculate_relative_base.html %}
-<div class="recent-box">
-  <h2 class="page-subtitle">Recent Posts</h2>
 
-  <div class="recent-list posts-list">
-    {% for post in site.posts offset:0 limit:4 %}
-      {% if post.title %}
-        {% capture post_url %}{{ site.baseurl }}{{ post.url }}{% endcapture %}
-        {% assign post_url = post_url | replace: "//", "/" %}
+<!-- Recent‐Posts Card Deck -->
+<ul class="post-card-box clearfix">
+  {% for post in site.posts offset:0 limit:4 %}
+    {% capture post_url %}{{ site.baseurl }}{{ post.url }}{% endcapture %}
+    {% assign post_url = post_url | replace: "//", "/" %}
 
-        <article class="recent-post">
-          <!-- 1) Title -->
-          <h3 class="recent-post-title">
-            <a href="{{ post_url }}">{{ post.title }}</a>
-          </h3>
+    <li>
+      <div class="post-card">
+        <!-- 1) Background image -->
+        <a href="{{ post_url }}"
+           class="post-card-image"
+           style="background-image: url('{{ relativebase }}assets/img/{{ post.img }}');">
+        </a>
 
-          <!-- 2) Excerpt (truncated to ~100 chars) -->
-          <p class="recent-post-excerpt">
-            {{ post.excerpt | strip_html | truncate: 100, "…" }}
-          </p>
+        <!-- 2) Overlay body -->
+        <div class="post-card-body">
+          <!-- (optional) category tags here -->
+          <!-- <div class="post-card-tags">…</div> -->
 
-          <!-- 3) Meta: date • read time -->
-          <div class="recent-post-meta">
-            <time datetime="{{ post.date | date_to_xmlschema }}">
+          <!-- 3) Title + meta -->
+          <div class="post-card-title-and-meta">
+            <h3 class="post-card-link">{{ post.title }}</h3>
+            <div class="post-card-meta">
               {{ post.date | date: "%d %b, %Y" | upcase }}
-            </time>
-            <span class="meta-sep">•</span>
-            <span>
+              <span class="meta-sep"></span>
               {{ post.content 
                  | strip_html 
                  | number_of_words 
                  | divided_by:200 
-                 | plus:1 }} min read
-            </span>
+                 | plus:1 }} MIN READ
+            </div>
           </div>
-        </article>
-
-      {% endif %}
-    {% endfor %}
-  </div>
-</div>
+        </div>
+      </div>
+    </li>
+  {% endfor %}
+</ul>
