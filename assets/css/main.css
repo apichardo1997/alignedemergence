@@ -2211,16 +2211,16 @@ a.read-more:hover {
   overflow: hidden;
   box-shadow: 0 2px 8px var(--shadow);
   transition: transform 0.2s ease;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .recent-item:hover {
   transform: translateY(-2px);
 }
 
-/* Image styling - clean, no overlay text */
+/* Image styling - clean, no overlay text, smaller size */
 .recent-item-img {
-  height: 200px;
+  height: 120px;
   display: block;
   transition: opacity 0.2s ease;
   position: relative;
@@ -2238,47 +2238,47 @@ a.read-more:hover {
   display: none;
 }
 
-/* Content area below image */
+/* Content area below image - no padding */
 .recent-item-content {
-  padding: 1.5rem;
+  padding: 0;
   background: var(--background);
 }
 
-/* Date styling - thin and elegant, matches your theme */
+/* Date styling - no padding */
 .recent-item-meta {
-  font-size: 0.75rem;
+  font-size: 0.6rem;
   color: var(--grey2);
   font-weight: var(--font2-light);
-  letter-spacing: 1.5px;
+  letter-spacing: 1px;
   text-transform: uppercase;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.2rem;
   font-family: var(--font2);
 }
 
-/* Read time styling */
+/* Read time styling - no padding */
 .recent-item-readtime {
-  font-size: 0.75rem;
+  font-size: 0.6rem;
   color: var(--grey2);
   font-weight: var(--font2-light);
-  letter-spacing: 1.5px;
+  letter-spacing: 1px;
   text-transform: uppercase;
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.75rem;
   font-family: var(--font2);
 }
 
-/* Title styling - uses your theme fonts and colors */
+/* Title styling - no padding */
 .recent-item-title {
   margin: 0;
-  font-size: 1.4rem;
-  line-height: 1.3;
+  font-size: 0.9rem;
+  line-height: 1.2;
   font-weight: var(--font2-light);
   font-family: var(--font2);
-  position: static; /* Override the absolute positioning */
-  background: transparent; /* Remove background */
-  width: auto; /* Remove fixed width */
-  left: auto; /* Remove positioning */
-  bottom: auto; /* Remove positioning */
-  padding: 0; /* Remove padding */
+  position: static;
+  background: transparent;
+  width: auto;
+  left: auto;
+  bottom: auto;
+  padding: 0;
 }
 
 .recent-item-title a {
@@ -2292,41 +2292,29 @@ a.read-more:hover {
   color: var(--accent);
 }
 
-/* Grid layout for recent posts */
+/* Grid layout - 4 columns on desktop, 2 on mobile */
 .recent-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
-  font-size: 1rem; /* Override the 0.7em from existing styles */
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+  font-size: 1rem;
 }
 
-/* Responsive adjustments */
+/* Tablet - 3 columns */
+@media (max-width: 1024px) {
+  .recent-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Mobile - 2 columns */
 @media (max-width: 768px) {
   .recent-list {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
   }
   
   .recent-item-content {
-    padding: 1rem;
+    padding: 0;
   }
-  
-  .recent-item-title {
-    font-size: 1.2rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .recent-item-img {
-    height: 150px;
-  }
-  
-  .recent-item-content {
-    padding: 0.75rem;
-  }
-  
-  .recent-item-title {
-    font-size: 1.1rem;
-  }
-}
