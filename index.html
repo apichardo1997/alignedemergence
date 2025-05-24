@@ -1,14 +1,20 @@
 ---
+# Use the "home-page" layout (i.e. _layouts/home-page.html)
 layout: home-page
 ---
+
+{% comment %} Calculate & expose a `relativebase` variable for asset URLs {% endcomment %}
 {% include calculate_relative_base.html %}
 
-<!-- Video embed -->
+<!-- Video embed wrapper: keeps aspect ratio and fills container -->
 <div class="video-wrapper">
+  <!-- YouTube iframe: loads your video with autoplay -->
   <iframe
-    src="https://player.vimeo.com/video/259293171?h=a290e9c8a7&autoplay=1&muted=1"
-    allow="autoplay; fullscreen"
+    src="https://www.youtube.com/embed/UjEngEpiJKo?autoplay=1"
+    allow="autoplay; fullscreen; encrypted-media; gyroscope; picture-in-picture; web-share"
     allowfullscreen>
   </iframe>
 </div>
+
+{% comment %} Insert your “Recent posts” section from _includes/recent-post.html {% endcomment %}
 {% include recent-post.html %}
