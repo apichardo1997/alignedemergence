@@ -1,19 +1,22 @@
 <svg viewBox="0 0 1000 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Dark blue background for visibility -->
+  <rect width="1000" height="200" fill="#2c3e50"/>
+  
   <defs>
     <style>
       .logo-text-light {
-        font-family: 'Times New Roman', 'Georgia', serif;
+        font-family: 'Courier New', 'Monaco', monospace;
         fill: #E9E9E9;
       }
       .aligned {
         font-size: 72px;
         font-weight: 300;
-        letter-spacing: 0.8em;
+        letter-spacing: 0.6em;
       }
       .emergence {
-        font-size: 88px;
+        font-size: 92px;
         font-weight: 700;
-        letter-spacing: 0.12em;
+        letter-spacing: 0.2em;
       }
     </style>
   </defs>
@@ -74,8 +77,8 @@
   </g>
   
   <!-- ALIGNED text -->
-  <text x="210" y="75" class="logo-text-light aligned">ALIGNED</text>
+  <text x="220" y="75" class="logo-text-light aligned">ALIGNED</text>
   
   <!-- EMERGENCE text -->
-  <text x="200" y="170" class="logo-text-light emergence">EMERGENCE</text>
+  <text x="220" y="170" class="logo-text-light emergence">EMERGENCE</text>
 </svg>
