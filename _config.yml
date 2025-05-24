@@ -1,13 +1,12 @@
 # Site settings
 title: Aligned Emergence
-description: 'Alignment, interpretability & the singularity' # this means to ignore newlines until "baseurl:"
+description: 'Intuition over jargon. Questions over hype. A curiosity-driven exploration of AI alignment, interpretability, and the path to beneficial emergence.' # this means to ignore newlines until "baseurl:"
 permalink: ':title:output_ext'
-baseurl: "/" # the subpath of your site, e.g. /blog
+baseurl: "" # empty for root domain deployment
 url: "https://aligned-emergence.com" # the base hostname & protocol for your site, e.g. http://example.com
 logo: "/assets/img/branding/ae-logo-full.svg"
 logo-icon: "/assets/img/branding/ae-symbol.svg"
-logo-icon-SEO: "/assets/img/branding/MVM-symbol-black.png" # must be a non SVG file
-
+logo-icon-SEO: "/assets/img/branding/ae-symbol.png" # must be a non SVG file - you'll need to create this PNG version
 # Night/Dark mode
 # Default mode is "auto", "auto" is for auto nightshift
 # (19:00 - 07:00), "manual" is for manual toggle, and
@@ -19,37 +18,37 @@ logo-icon-SEO: "/assets/img/branding/MVM-symbol-black.png" # must be a non SVG f
 # it will be always kept on every visit (i.e. no matter
 # the browser is closed or not)
 night_mode: "auto"
-
-logo-dark: "/assets/img/branding/MVM-logo-full-dark.svg"
+logo-dark: "/assets/img/branding/ae-logo-full-dark.svg" # you'll need to create a dark version
 highlight_theme: syntax-base16.monokai.dark # select a dark theme for the code highlighter if needed
 
 # Author settings
-author: Armando Maynez # add your name
-author-pic: Myself_Neon_grey.jpg
-about-author: Engineer, industry executive, research enthusiast. Avid learner with diverse interests in coding, machine learning, artificial intelligence and reinforcement learning. 17+ years of experience working in multinational corporations.
+author: Your Name # replace with your actual name
+author-pic: your-photo.jpg # replace with your photo filename
+about-author: AI researcher and writer exploring the intersection of technology and human values. Passionate about making AI alignment accessible through curiosity-driven exploration and clear, jargon-free communication.
 
 # Contact links
-email: armando.maynez@gmail.com # Add your Email address
-phone: # Add your Phone number
-website: https://amaynez.github.io # Add your website
-linkedin: amaynez # Add your Linkedin handle
-github: amaynez # Add your Github handle
-twitter: '@MvmThe' # Add your Twitter handle
-bandcamp: armandomaynez # Add your Bandcamp username
-stackoverflow: stackoverflow # Add your stackoverflow account
+email: your-email@gmail.com # Add your Email address
+phone: # Add your Phone number if desired
+website: https://aligned-emergence.com # Your main website
+linkedin: your-linkedin-handle # Add your Linkedin handle
+github: your-github-handle # Add your Github handle
+twitter: '@your-twitter-handle' # Add your Twitter handle
+bandcamp: # Add your Bandcamp username if you have one
+stackoverflow: # Add your stackoverflow account if you have one
 
 # Newsletter
-mailchimp: "https://github.us1.list-manage.com/subscribe/post?u=8ece198b3eb260e6838461a60&amp;id=397d90b5f4"
+mailchimp: "" # Add your Mailchimp signup URL when you set up newsletter
 
-# Tracker
-analytics: G-R8SZS2YBZK
-fbadmin: ar.maybach
+# Analytics & Tracking
+analytics: # Add your Google Analytics ID when ready (e.g., G-XXXXXXXXXX)
+fbadmin: # Add your Facebook admin ID if needed
 
 # Paginate
 paginate: 6
 paginate_path: 'page:num'
 words_per_minute: 200
 
+# Extensions
 extensions:
   mermaid_enable: true
 
@@ -57,12 +56,12 @@ extensions:
 comments: utteranc  #[disqus, utteranc]
 comments_opts:
   comments_curtain: yes # leave empty to show the disqus embed directly
-  repo: # The GitHub repo URL.  https://utteranc.es/
-  issue_term: # The GitHub issue label
-  label: # The GitHub comments label
-  theme: # The GitHub comment's there. e.g. github-dark
-  # Disqus
-  discus_identifier: # Add your discus identifier
+  repo: your-github-username/aligned-emergence # The GitHub repo URL for utterances comments
+  issue_term: pathname # The GitHub issue label
+  label: comments # The GitHub comments label
+  theme: github-light # The GitHub comment's theme. e.g. github-dark, github-light
+  # Disqus (alternative)
+  discus_identifier: # Add your discus identifier if using Disqus instead
 
 # Build settings
 markdown: kramdown
@@ -74,8 +73,7 @@ compress_html:
   startings: [html, head, body]
 
 # Outputting
-timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-
+timezone: America/New_York # Update to your timezone - https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 category_archive:
   type: liquid
   path: /categories/
