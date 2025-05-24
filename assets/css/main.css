@@ -2236,3 +2236,41 @@ a.read-more:hover {
 }
 
 /* ─────────────────────────────────────────────────────────── */
+/* ─── Recent-Posts: Horizontal Card Deck ───────────────────── */
+
+/* 1) Turn the list into a flex container so items line up horizontally */
+.recent-list {
+  display: flex;            /* horizontal flow */
+  flex-wrap: wrap;          /* wrap to new line as needed */
+  gap: 0.5%;                /* small gap between cards */
+  padding: 0;               /* reset any padding */
+  margin: 0;                /* reset any margin */
+}
+
+/* 2) Size each card to ~24% so 4 fit in a row (with gap) */
+.recent-item {
+  flex: 0 0 24%;            /* don't grow, don't shrink, base = 24% */
+  margin: 0.5% 0;           /* vertical gutter */
+  box-sizing: border-box;   /* include padding/border in that 24% */
+}
+
+/* 3) Tablet breakpoint: 2 cards across */
+@media (max-width: 768px) {
+  .recent-item {
+    flex: 0 0 48%;          /* two across */
+  }
+}
+
+/* 4) Mobile breakpoint: 1 card full-width */
+@media (max-width: 480px) {
+  .recent-item {
+    flex: 0 0 100%;         /* one per row */
+  }
+}
+
+/* 5) Optional: center container and limit max-width */
+.recent-box {
+  max-width: 1200px;        /* or whatever your page width is */
+  margin: 0 auto;
+  padding-bottom: 1rem;
+}
