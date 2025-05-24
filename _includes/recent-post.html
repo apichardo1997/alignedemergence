@@ -1,6 +1,6 @@
 {% include calculate_relative_base.html %}
 <div class="recent-box">
-  <h2 class="page-subtitle">Recent posts</h2>
+  <h2 class="page-subtitle">Recent Posts</h2>
   <div class="recent-list">
     {% for post in site.posts offset:0 limit:4 %}
       {% if post.title %}
@@ -17,11 +17,9 @@
           
           <!-- Title and metadata outside the image -->
           <div class="recent-item-content">
-            <div class="recent-item-meta">
-              {{ post.date | date: "%d %b, %Y" | upcase }}
-            </div>
-            <div class="recent-item-readtime">
-              {{ post.content | strip_html | number_of_words | divided_by: 200 | plus: 1 }} MIN READ
+            <div class="recent-item-meta-container">
+              <span class="recent-item-meta">{{ post.date | date: "%d %b, %Y" | upcase }}</span>
+              <span class="recent-item-readtime">{{ post.content | strip_html | number_of_words | divided_by: 200 | plus: 1 }} MIN READ</span>
             </div>
             <h3 class="recent-item-title">
               <a href="{{ post_url }}">{{ post.title }}</a>
