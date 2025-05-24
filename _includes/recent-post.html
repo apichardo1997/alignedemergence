@@ -1,94 +1,29 @@
-/* Recent posts styling */
-.recent-item {
-  display: flex;
-  flex-direction: column;
-  background: var(--cream, #fefefe);
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  transition: transform 0.2s ease;
-}
-
-.recent-item:hover {
-  transform: translateY(-2px);
-}
-
-.recent-item-img {
-  height: 200px;
-  display: block;
-  transition: opacity 0.2s ease;
-}
-
-.recent-item-img:hover {
-  opacity: 0.9;
-}
-
-.recent-item-content {
-  padding: 1.5rem;
-  background: transparent;
-}
-
-/* Date styling - thin and elegant */
-.recent-item-meta {
-  font-size: 0.75rem;
-  color: #999;
-  font-weight: 300;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  margin-bottom: 0.25rem;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-}
-
-/* Read time styling */
-.recent-item-readtime {
-  font-size: 0.75rem;
-  color: #999;
-  font-weight: 300;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  margin-bottom: 1.25rem;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-}
-
-/* Title styling - thin serif font */
-.recent-item-title {
-  margin: 0;
-  font-size: 1.4rem;
-  line-height: 1.3;
-  font-weight: 300;
-  font-family: Georgia, 'Times New Roman', serif;
-}
-
-.recent-item-title a {
-  color: var(--dark-teal, #2c5f5f);
-  text-decoration: none;
-  font-weight: 300;
-  transition: color 0.2s ease;
-}
-
-.recent-item-title a:hover {
-  color: var(--soft-gold, #d4af37);
-}
-
-/* Responsive grid */
-.recent-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-@media (max-width: 768px) {
-  .recent-list {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-  
-  .recent-item-content {
-    padding: 1rem;
-  }
-  
-  .recent-item-title {
-    font-size: 1.2rem;
-  }
-}
+{% include calculate_relative_base.html %}
+<div class="recent-box">
+  <h2 class="page-subtitle">Recent posts</h2>
+  <div class="recent-list">
+    {% for post in site.posts offset:0 limit:4 %}
+      {% if post.title %}
+        <div class="recent-item">
+          {% include escape-404.html %}
+          {% include remove_double_slash.html %}
+          
+          <!-- Image link without text overlay -->
+          <a href="{{ post_url }}" class="recent-item-img" style="background: url('{{ relativebase }}assets/img/{{ post.img }}') center no-repeat; background-size: cover;">
+            <!-- Empty - no text inside the image link -->
+          </a>
+          
+          <!-- Title and metadata outside the image -->
+          <div class="recent-item-content">
+            <div class="recent-item-meta">
+              {{ post.date | date: "%d %b, %Y" | upcase }}
+            </div>
+            <div class="recent-item-readtime">
+              {{ post.content | strip_html | number_of_words | divided_by: 200 | plus: 1 }} MIN READ
+            </div>
+            <h3 class="recent-item-title">
+              <a href="{{ post_url }}">{{ post.title }}</a>
+            </h3>
+          </div>
+          
+        </div>
