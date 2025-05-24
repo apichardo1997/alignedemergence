@@ -3,34 +3,18 @@ layout: home-page
 ---
 {% include calculate_relative_base.html %}
 
-<!-- Video embed wrapper -->
-<div class="video-wrapper" style="position: relative;">
-  <!-- 1) IFrame with &mute=1 (so browsers will autoplay) and enablejsapi=1 -->
+<!-- video-wrapper: positions the iframe and the button -->
+<div class="video-wrapper">
+  <!-- YouTube player, muted so browsers will autoplay -->
   <iframe
-    id="yt-player"                                  <!-- give it an ID for JS -->
-    src="https://www.youtube.com/embed/UjEngEpiJKo    <!-- your video -->
-         ?autoplay=1                                 <!-- start playing -->
-         &mute=1                                     <!-- muted so autoplay works -->
-         &enablejsapi=1"                             <!-- enable JS API -->
-    allow="autoplay; fullscreen; encrypted-media" 
+    id="yt-player"
+    src="https://www.youtube.com/embed/UjEngEpiJKo?autoplay=1&mute=1&enablejsapi=1"
+    allow="autoplay; fullscreen; encrypted-media; gyroscope; picture-in-picture; web-share"
     allowfullscreen>
   </iframe>
 
-  <!-- 2) Unmute button overlayed in the corner -->
-  <button
-    id="unmute-btn"                                 <!-- for JS hook -->
-    style="
-      position: absolute;                           /* sit on top of video */
-      bottom: 1rem;                                  /* 1rem from the bottom */
-      right: 1rem;                                   /* 1rem from the right */
-      background: rgba(0,0,0,0.6);                   /* semi-transparent bg */
-      color: white;                                  /* white text */
-      border: none;                                  /* no default border */
-      padding: 0.5rem 1rem;                          /* comfy padding */
-      border-radius: 0.25rem;                        /* rounded corners */
-      cursor: pointer;                               /* pointer cursor */
-      z-index: 10;                                   /* above the iframe */
-    ">
+  <!-- unmute button: sits over the video -->
+  <button id="unmute-btn" class="unmute-btn">
     🔊 Unmute
   </button>
 </div>
