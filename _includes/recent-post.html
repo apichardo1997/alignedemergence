@@ -1,31 +1,40 @@
 {% include calculate_relative_base.html %}
 <div class="recent-box">
   <h2 class="page-subtitle">Recent Posts</h2>
-  <div class="recent-list">
+
+  <div class="recent-list posts-list">
     {% for post in site.posts offset:0 limit:4 %}
       {% if post.title %}
-        <div class="recent-item">
-          {% include escape-404.html %}
-          {% include remove_double_slash.html %}
-          {% capture post_url %}{{ site.baseurl }}/{{ post.url }}{% endcapture %}
-          {% assign post_url = post_url | replace: "//", "/" %}
-          
-          <!-- Image link without text overlay -->
-          <a href="{{ post_url }}" class="recent-item-img" style="background: url('{{ site.baseurl }}/assets/img/{{ post.img }}') center no-repeat; background-size: cover;">
-            <!-- Empty - no text inside the image link -->
-          </a>
-          
-          <!-- Title and metadata outside the image -->
-          <div class="recent-item-content">
-            <div class="recent-item-meta-container">
-              <span class="recent-item-meta">{{ post.date | date: "%d %b, %Y" | upcase }}</span>
-              <span class="recent-item-readtime">{{ post.content | strip_html | number_of_words | divided_by: 200 | plus: 1 }} MIN READ</span>
-            </div>
-            <h3 class="recent-item-title">
-              <a href="{{ post_url }}">{{ post.title }}</a>
-            </h3>
+        {% capture post_url %}{{ site.baseurl }}{{ post.url }}{% endcapture %}
+        {% assign post_url = post_url | replace: "//", "/" %}
+
+        <article class="recent-post">
+          <!-- 1) Title -->
+          <h3 class="recent-post-title">
+            <a href="{{ post_url }}">{{ post.title }}</a>
+          </h3>
+
+          <!-- 2) Excerpt (truncated to ~100 chars) -->
+          <p class="recent-post-excerpt">
+            {{ post.excerpt | strip_html | truncate: 100, "…" }}
+          </p>
+
+          <!-- 3) Meta: date • read time -->
+          <div class="recent-post-meta">
+            <time datetime="{{ post.date | date_to_xmlschema }}">
+              {{ post.date | date: "%d %b, %Y" | upcase }}
+            </time>
+            <span class="meta-sep">•</span>
+            <span>
+              {{ post.content 
+                 | strip_html 
+                 | number_of_words 
+                 | divided_by:200 
+                 | plus:1 }} min read
+            </span>
           </div>
-        </div>
+        </article>
+
       {% endif %}
     {% endfor %}
   </div>
