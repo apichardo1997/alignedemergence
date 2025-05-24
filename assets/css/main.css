@@ -2214,7 +2214,7 @@ a.read-more:hover {
   background: var(--background);
 }
 
-/* Meta container - date and read time on same line */
+/* Meta container - date and read time side by side */
 .recent-item-meta-container {
   display: flex;
   justify-content: space-between;
@@ -2222,7 +2222,7 @@ a.read-more:hover {
   margin-bottom: 0.3rem;
 }
 
-/* Date styling - inline with read time */
+/* Date styling - left side */
 .recent-item-meta {
   font-size: 0.5rem;
   color: var(--grey2);
@@ -2233,7 +2233,7 @@ a.read-more:hover {
   font-family: var(--font2);
 }
 
-/* Read time styling - inline with date */
+/* Read time styling - right side */
 .recent-item-readtime {
   font-size: 0.5rem;
   color: var(--grey2);
@@ -2244,12 +2244,12 @@ a.read-more:hover {
   font-family: var(--font2);
 }
 
-/* Title styling - very compact, ALL CAPS, matches page titles */
+/* Title styling - BOLD, ALL CAPS, matches page titles */
 .recent-item-title {
   margin: 0;
   font-size: 0.7rem;
   line-height: 1.1;
-  font-weight: var(--font2-light);
+  font-weight: var(--font2-bold);
   font-family: var(--font2);
   text-transform: uppercase;
   position: static;
@@ -2263,7 +2263,7 @@ a.read-more:hover {
 .recent-item-title a {
   color: var(--text);
   text-decoration: none;
-  font-weight: var(--font2-light);
+  font-weight: var(--font2-bold);
   transition: color 0.2s ease;
   text-transform: uppercase;
 }
@@ -2272,12 +2272,12 @@ a.read-more:hover {
   color: var(--accent);
 }
 
-/* Recent posts section styling - right aligned with spacing and line */
+/* Recent posts section styling - centered with spacing and line */
 .recent-box {
   margin-top: 60px;
   padding-top: 40px;
   border-top: 1px solid var(--grey4);
-  text-align: right;
+  text-align: center;
 }
 
 /* Recent posts title - matches page title styling */
@@ -2287,7 +2287,7 @@ a.read-more:hover {
   font-size: 1.5rem;
   text-transform: uppercase;
   color: var(--text);
-  text-align: right;
+  text-align: center;
   margin-bottom: 30px;
 }
 
@@ -2323,13 +2323,8 @@ a.read-more:hover {
   }
   
   .recent-box {
-    text-align: center;
     margin-top: 40px;
     padding-top: 30px;
-  }
-  
-  .recent-box .page-subtitle {
-    text-align: center;
   }
 }
 
