@@ -7,9 +7,11 @@
         <div class="recent-item">
           {% include escape-404.html %}
           {% include remove_double_slash.html %}
+          {% capture post_url %}{{ site.baseurl }}/{{ post.url }}{% endcapture %}
+          {% assign post_url = post_url | replace: "//", "/" %}
           
           <!-- Image link without text overlay -->
-          <a href="{{ post_url }}" class="recent-item-img" style="background: url('{{ relativebase }}assets/img/{{ post.img }}') center no-repeat; background-size: cover;">
+          <a href="{{ post_url }}" class="recent-item-img" style="background: url('{{ site.baseurl }}/assets/img/{{ post.img }}') center no-repeat; background-size: cover;">
             <!-- Empty - no text inside the image link -->
           </a>
           
@@ -25,5 +27,8 @@
               <a href="{{ post_url }}">{{ post.title }}</a>
             </h3>
           </div>
-          
         </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
