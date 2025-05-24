@@ -2170,175 +2170,69 @@ a.read-more:hover {
 }
 
 
-/* = = = = = = = = = = Recent Posts - New Card Layout = = = = = = = = = = */
+/* ─── Recent‐Posts List ───────────────────────────────────── */
 
-/* Override existing recent-item styles for new card layout */
-.recent-item {
-  display: flex;
-  flex-direction: column;
-  background: var(--background);
-  border-radius: 0;
-  overflow: hidden;
-  box-shadow: none;
-  transition: transform 0.2s ease;
-  margin-bottom: 0.5rem;
+.posts-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-.recent-item:hover {
-  transform: translateY(-1px);
+.recent-post {
+  border-bottom: 1px solid var(--grey4);
+  padding-bottom: 1.5rem;
 }
 
-/* Image styling - very compact */
-.recent-item-img {
-  height: 80px;
-  display: block;
-  transition: opacity 0.2s ease;
-  position: relative;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+.recent-post:last-child {
+  border-bottom: none;
 }
 
-.recent-item-img:hover {
-  opacity: 0.9;
-}
-
-/* Remove the old overlay styling */
-.recent-item-img::after {
-  display: none;
-}
-
-/* Content area below image - very compact */
-.recent-item-content {
-  padding: 0;
-  background: var(--background);
-}
-
-/* Meta container - date and read time side by side */
-.recent-item-meta-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0.3rem;
-}
-
-/* Date styling - left side */
-.recent-item-meta {
-  font-size: 0.5rem;
-  color: var(--grey2);
-  font-weight: var(--font2-light);
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  margin: 0;
+/* Title */
+.recent-post-title {
   font-family: var(--font2);
+  font-weight: var(--font2-regular);
+  font-size: 1.75rem;
+  margin: 0 0 0.25rem;
+  color: var(--accent-dark);
 }
 
-/* Read time styling - right side */
-.recent-item-readtime {
-  font-size: 0.5rem;
-  color: var(--grey2);
-  font-weight: var(--font2-light);
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  margin: 0;
-  font-family: var(--font2);
-}
-
-/* Title styling - BOLD, ALL CAPS, matches page titles */
-.recent-item-title {
-  margin: 0;
-  font-size: 0.7rem;
-  line-height: 1.1;
-  font-weight: var(--font2-bold);
-  font-family: var(--font2);
-  text-transform: uppercase;
-  position: static;
-  background: transparent;
-  width: auto;
-  left: auto;
-  bottom: auto;
-  padding: 0;
-}
-
-.recent-item-title a {
-  color: var(--text);
+.recent-post-title a {
   text-decoration: none;
-  font-weight: var(--font2-bold);
+  color: inherit;
   transition: color 0.2s ease;
-  text-transform: uppercase;
 }
 
-.recent-item-title a:hover {
+.recent-post-title a:hover {
   color: var(--accent);
 }
 
-/* Recent posts section styling - centered with spacing and line */
-.recent-box {
-  margin-top: 60px;
-  padding-top: 40px;
-  border-top: 1px solid var(--grey4);
-  text-align: center;
+/* Excerpt */
+.recent-post-excerpt {
+  font-family: var(--font1);
+  color: var(--grey1);
+  line-height: 1.6;
+  margin: 0 0 0.5rem;
 }
 
-/* Recent posts title - matches page title styling */
-.recent-box .page-subtitle {
+/* Meta (date • read time) */
+.recent-post-meta {
+  font-size: 0.875rem;
+  color: var(--grey2);
   font-family: var(--font2);
-  font-weight: var(--font2-light);
-  font-size: 1.5rem;
   text-transform: uppercase;
-  color: var(--text);
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-/* Grid layout - 4 columns on desktop, 2 on mobile, very compact */
-.recent-list {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  align-items: center;
   gap: 0.5rem;
-  margin-top: 1rem;
-  font-size: 1rem;
 }
 
-/* Tablet - 3 columns */
-@media (max-width: 1024px) {
-  .recent-list {
-    grid-template-columns: repeat(3, 1fr);
-  }
+.recent-post-meta time {
+  white-space: nowrap;
 }
 
-/* Mobile - 2 columns */
-@media (max-width: 768px) {
-  .recent-list {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.4rem;
-  }
-  
-  .recent-item-img {
-    height: 70px;
-  }
-  
-  .recent-item-title {
-    font-size: 0.65rem;
-  }
-  
-  .recent-box {
-    margin-top: 40px;
-    padding-top: 30px;
-  }
+.meta-sep {
+  display: inline-block;
 }
 
-/* Very small mobile - 1 column */
-@media (max-width: 480px) {
-  .recent-list {
-    grid-template-columns: 1fr;
-  }
-  
-  .recent-item-img {
-    height: 80px;
-  }
-  
-  .recent-item-title {
-    font-size: 0.7rem;
-  }
-}
+/* ─────────────────────────────────────────────────────────── */
