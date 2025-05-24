@@ -1946,45 +1946,25 @@ div.tag-cloud {
   color: var(--accent);
 }
 
-/* ═══════════════════════════════════════════════
-/* --- Latest Explorations Section Header --- */
-.recent-section-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 22px;
-  margin: 48px 0 24px 0;
-}
-.recent-section-line {
-  flex: 1;
-  border: none;
-  border-top: 1.5px solid var(--grey4);
-  min-width: 40px;
-  max-width: 220px;
-  opacity: 0.8;
-  margin: 0;
-}
-.recent-section-title {
-  font-family: 'Times New Roman', Times, serif;
-  font-size: 2.1rem;
-  font-weight: bold;
-  color: var(--text);
-  text-align: center;
-  letter-spacing: 0.03em;
-  margin: 0 0.2em;
-  background: transparent;
-}
+/* ════════════════════════════════════════════════════════════════════════════
+   LATEST EXPLORATIONS: Minimal Responsive Post Card Section
+   - Images on top, SVG fallback if missing
+   - Titles/excerpt/meta/tags all wrap cleanly
+   - Cards are uniform, no background, modern, responsive
+   ════════════════════════════════════════════════════════════════════════════ */
 
-/* --- Minimal, Responsive Post Cards --- */
+/* Main container for all post cards: horizontal row, wraps as needed */
 .post-card-box {
   display: flex;
-  flex-wrap: wrap;
-  gap: 36px;
-  justify-content: center;
+  flex-wrap: wrap;         /* Allow cards to wrap to new line on small screens */
+  gap: 36px;               /* Space between cards */
+  justify-content: center; /* Center cards horizontally */
   padding: 0;
   margin: 0 0 32px 0;
-  list-style: none;
+  list-style: none;        /* Remove default bullets */
 }
+
+/* Each card (li) - fixed width, stretches on mobile */
 .post-card-box li {
   width: 210px;
   min-width: 180px;
@@ -1996,6 +1976,8 @@ div.tag-cloud {
   margin: 0;
   padding: 0;
 }
+
+/* Link wrapper for entire card (makes it clickable) */
 .post-card-link {
   display: flex;
   flex-direction: column;
@@ -2008,9 +1990,11 @@ div.tag-cloud {
   box-sizing: border-box;
   height: 100%;
 }
+
+/* Image wrapper: aspect ratio, border, rounded corners */
 .post-card-img-wrap {
   width: 100%;
-  aspect-ratio: 4/3;
+  aspect-ratio: 4/3; /* Keeps images always landscape, 4:3 */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2018,8 +2002,10 @@ div.tag-cloud {
   border-radius: 12px;
   border: 1px solid var(--grey4);
   margin-bottom: 12px;
-  background: var(--grey5); /* fallback for missing img */
+  background: var(--grey5); /* fallback bg color for SVG */
 }
+
+/* The image itself (or SVG): fills space, rounded, always visible */
 .post-card-img {
   width: 100%;
   height: 100%;
@@ -2028,6 +2014,8 @@ div.tag-cloud {
   border-radius: 12px;
   background: var(--grey5);
 }
+
+/* Info section under image: title, excerpt, meta, tags */
 .post-card-info {
   width: 100%;
   display: flex;
@@ -2035,6 +2023,8 @@ div.tag-cloud {
   align-items: flex-start;
   box-sizing: border-box;
 }
+
+/* Post title: wraps text, no overflow */
 .post-card-title {
   font-family: var(--font2);
   color: var(--text);
@@ -2048,9 +2038,13 @@ div.tag-cloud {
   width: 100%;
   transition: color 0.16s;
 }
+
+/* Title hover: highlight in accent color */
 .post-card-link:hover .post-card-title {
   color: var(--accent);
 }
+
+/* Excerpt: muted color, two lines max */
 .post-card-excerpt {
   color: var(--grey2);
   font-family: var(--font1);
@@ -2064,6 +2058,8 @@ div.tag-cloud {
   max-height: 3.7em;
   display: block;
 }
+
+/* Meta info: date, reading time, muted and tiny */
 .post-card-meta {
   color: var(--grey2);
   font-size: .93em;
@@ -2074,6 +2070,8 @@ div.tag-cloud {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+/* Tags row: always on their own line, up to two tags */
 .post-card-tags {
   display: flex;
   flex-wrap: wrap;
@@ -2094,7 +2092,7 @@ div.tag-cloud {
   text-transform: lowercase;
 }
 
-/* --- Responsive stacking on mobile --- */
+/* Responsive: On tablet, make cards wider and gap smaller */
 @media (max-width: 800px) {
   .post-card-box {
     gap: 22px;
@@ -2105,6 +2103,7 @@ div.tag-cloud {
     max-width: 280px;
   }
 }
+/* On mobile: cards are full width, stack vertically */
 @media (max-width: 600px) {
   .post-card-box {
     flex-direction: column;
@@ -2115,4 +2114,14 @@ div.tag-cloud {
     width: 98vw;
     max-width: 340px;
   }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   FOOTER: Minimal, Transparent, Always Blends In
+   ════════════════════════════════════════════════════════════════════════════ */
+.main-footer {
+  padding: 5px 15px;
+  background: transparent !important;  /* Removes color */
+  box-shadow: none !important;         /* Removes shadow */
+  border: none !important;
 }
