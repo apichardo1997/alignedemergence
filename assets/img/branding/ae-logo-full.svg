@@ -1,37 +1,31 @@
 <svg viewBox="0 0 1000 200" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
-      .logo-text {
+      .logo-text-light {
         font-family: 'Georgia', 'Times New Roman', serif;
-        font-weight: bold;
         fill: #F5E4C3;
         letter-spacing: 0.05em;
       }
       .aligned {
-        font-size: 72px;
+        font-size: 84px;
+        font-weight: 300;
       }
       .emergence {
-        font-size: 72px;
-      }
-      .geometric-lines {
-        fill: none;
-        stroke: #F5E4C3;
-        stroke-width: 2;
-        stroke-linecap: round;
-        stroke-linejoin: round;
+        font-size: 84px;
+        font-weight: bold;
       }
     </style>
   </defs>
   
   <!-- Aligned Emergence compass-tree symbol -->
-  <g transform="translate(100, 100) scale(1.8)">
+  <g transform="translate(90, 100) scale(1.8)">
     <!-- Outer compass circle -->
     <circle cx="0" cy="0" r="48" fill="none" stroke="#F5E4C3" stroke-width="2"/>
     <!-- Cardinal direction markers -->
-    <line x1="0" y1="-48" x2="0" y2="-38" stroke="#F5E4C3" stroke-width="2"/>
-    <line x1="0" y1="38" x2="0" y2="48" stroke="#F5E4C3" stroke-width="2"/>
-    <line x1="-48" y1="0" x2="-38" y2="0" stroke="#F5E4C3" stroke-width="2"/>
-    <line x1="38" y1="0" x2="48" y2="0" stroke="#F5E4C3" stroke-width="2"/>
+    <line x1="0" y1="-54" x2="0" y2="-42" stroke="#F5E4C3" stroke-width="2"/>
+    <line x1="0" y1="42" x2="0" y2="54" stroke="#F5E4C3" stroke-width="2"/>
+    <line x1="-54" y1="0" x2="-42" y2="0" stroke="#F5E4C3" stroke-width="2"/>
+    <line x1="42" y1="0" x2="54" y2="0" stroke="#F5E4C3" stroke-width="2"/>
     <!-- Tree trunk -->
     <line x1="0" y1="0" x2="0" y2="15" stroke="#F5E4C3" stroke-width="3"/>
     <!-- Tree leaves/crown (sun-like flower) -->
@@ -48,12 +42,12 @@
       <path d="M-5.7,5.7 L-12,9 L-9,6 L-12,3 Z" fill="#F5E4C3"/>
       <path d="M-5.7,-5.7 L-9,-12 L-6,-9 L-3,-12 Z" fill="#F5E4C3"/>
     </g>
-    <!-- Four-pointed star (left) -->
-    <g transform="translate(-25,-10)">
-      <path d="M0,-6 L-2,-3 L0,0 L2,-3 Z" fill="#F5E4C3"/>
-      <path d="M6,0 L3,-2 L0,0 L3,2 Z" fill="#F5E4C3"/>
-      <path d="M0,6 L2,3 L0,0 L-2,3 Z" fill="#F5E4C3"/>
-      <path d="M-6,0 L-3,2 L0,0 L-3,-2 Z" fill="#F5E4C3"/>
+    <!-- Four-pointed star (left) - made smaller and moved up -->
+    <g transform="translate(-25,-15)">
+      <path d="M0,-3 L-1,-1.5 L0,0 L1,-1.5 Z" fill="#F5E4C3"/>
+      <path d="M3,0 L1.5,-1 L0,0 L1.5,1 Z" fill="#F5E4C3"/>
+      <path d="M0,3 L1,1.5 L0,0 L-1,1.5 Z" fill="#F5E4C3"/>
+      <path d="M-3,0 L-1.5,1 L0,0 L-1.5,-1 Z" fill="#F5E4C3"/>
     </g>
     <!-- Crescent moon (right) -->
     <path d="M20,-15 C25,-15 25,-10 20,-10 C22,-12.5 22,-12.5 20,-15" fill="#F5E4C3"/>
@@ -70,8 +64,8 @@
   </g>
   
   <!-- ALIGNED text -->
-  <text x="220" y="80" class="logo-text aligned">ALIGNED</text>
+  <text x="200" y="80" class="logo-text-light aligned">ALIGNED</text>
   
   <!-- EMERGENCE text -->
-  <text x="220" y="160" class="logo-text emergence">EMERGENCE</text>
+  <text x="200" y="160" class="logo-text-light emergence">EMERGENCE</text>
 </svg>
