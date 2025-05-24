@@ -1946,7 +1946,6 @@ div.tag-cloud {
 }
 
 /* ═══════════════════════════════════════════════
-
 /* --- Latest Explorations Section Header --- */
 .recent-section-header {
   display: flex;
@@ -1975,105 +1974,112 @@ div.tag-cloud {
   background: transparent;
 }
 
-/* --- Minimal Horizontal Post Cards (Small Images) --- */
+/* --- Minimal, Responsive Post Cards --- */
 .post-card-box {
   display: flex;
   flex-wrap: wrap;
-  gap: 32px;
+  gap: 36px;
   justify-content: center;
   padding: 0;
   margin: 0 0 32px 0;
   list-style: none;
 }
-
 .post-card-box li {
-  width: 180px; /* Slightly wider than image for text to breathe */
+  width: 210px;
+  min-width: 180px;
+  max-width: 240px;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  background: none;
-  box-shadow: none;
-  border: none;
-  padding: 0;
+  align-items: stretch;
   margin: 0;
+  padding: 0;
 }
-
 .post-card-link {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
+  width: 100%;
   text-decoration: none;
   background: none;
   border: none;
   padding: 0;
-  width: 100%;
+  box-sizing: border-box;
+  height: 100%;
 }
-
+.post-card-img-wrap {
+  width: 100%;
+  aspect-ratio: 4/3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid var(--grey4);
+  margin-bottom: 12px;
+  background: var(--grey5); /* fallback for missing img */
+}
 .post-card-img {
   width: 100%;
-  max-width: 140px;   /* ⬅️ Small images, Figma-style */
-  aspect-ratio: 4/3;
-  background-size: cover;
-  background-position: center;
-  border-radius: 11px;
-  margin-bottom: 12px;
-  border: 1px solid var(--grey4);
-  transition: filter 0.18s;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px;
+  background: var(--grey5);
 }
-.post-card-link:hover .post-card-img {
-  filter: brightness(0.87) saturate(1.1);
-}
-
 .post-card-info {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  box-sizing: border-box;
 }
-
 .post-card-title {
   font-family: var(--font2);
   color: var(--text);
   font-weight: var(--font2-bold);
-  font-size: 1.03rem; /* ~16-17px */
-  line-height: 1.2;
-  margin-bottom: 0.18em;
-  margin-top: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  display: block;
+  font-size: 1.08rem;
+  line-height: 1.23;
+  margin: 0 0 0.17em 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  white-space: normal;
+  width: 100%;
   transition: color 0.16s;
 }
 .post-card-link:hover .post-card-title {
   color: var(--accent);
 }
-
 .post-card-excerpt {
   color: var(--grey2);
   font-family: var(--font1);
-  font-size: .97em;  /* ~15-16px */
-  margin-bottom: 0.21em;
-  margin-top: 0;
-  line-height: 1.25;
-  max-height: 2.7em;
-  overflow: hidden;
+  font-size: .97em;
+  margin: 0 0 0.21em 0;
+  line-height: 1.26;
+  width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  white-space: normal;
+  max-height: 3.7em;
   display: block;
 }
-
 .post-card-meta {
   color: var(--grey2);
   font-size: .93em;
   font-family: var(--font1);
   margin-bottom: 2px;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-
 .post-card-tags {
   display: flex;
+  flex-wrap: wrap;
   gap: 6px;
   margin-top: 2px;
+  width: 100%;
 }
-
 .post-card-tag {
   border: 1px solid var(--grey4);
   border-radius: 10px;
@@ -2087,15 +2093,25 @@ div.tag-cloud {
   text-transform: lowercase;
 }
 
-/* Responsive stacking on mobile */
-@media (max-width: 700px) {
+/* --- Responsive stacking on mobile --- */
+@media (max-width: 800px) {
+  .post-card-box {
+    gap: 22px;
+  }
+  .post-card-box li {
+    width: 46vw;
+    min-width: 140px;
+    max-width: 280px;
+  }
+}
+@media (max-width: 600px) {
   .post-card-box {
     flex-direction: column;
     align-items: center;
-    gap: 28px;
+    gap: 18px;
   }
   .post-card-box li {
-    width: 96vw;
-    max-width: 220px;
+    width: 98vw;
+    max-width: 340px;
   }
 }
