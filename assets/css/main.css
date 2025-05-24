@@ -2136,4 +2136,19 @@ a.read-more:hover {
     .page__hero-caption{color:#000 !important;background:white !important;opacity:1}
     .page__hero-caption a{color:#000 !important}
     .masthead,.toc,.page__share,.page__related,.pagination,.ads,.page__footer,.page__comments-form,.author__avatar,.author__content,.author__urls-wrapper,.nav__list,.sidebar,.adsbygoogle{display:none !important;height:1px !important}}
+/* ───────────────────────────────────────────────────────
+   Remove that stray “line” under your header/hero
+   ─────────────────────────────────────────────────────── */
+  
+/* 1) Kill any shadow/border on the header itself */
+.main-header,
+.page__hero--overlay {
+  box-shadow: none !important;
+  border-bottom: none !important;
+}
 
+/* 2) Hide any <hr> in the hero area */
+.page__hero--overlay hr,
+.main-header hr {
+  display: none !important;
+}
