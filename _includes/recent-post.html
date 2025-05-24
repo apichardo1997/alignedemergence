@@ -1,33 +1,41 @@
-<li>
-  <a href="{{ post_url }}" class="post-card-link">
-    <div class="post-card-img-wrap">
-      {% if post.img %}
-        <img class="post-card-img" src="{{ site.baseurl }}/assets/img/{{ post.img }}" alt="{{ post.title }} thumbnail" />
-      {% else %}
-        <img class="post-card-img" src="{{ site.baseurl }}/assets/img/placeholder.jpg" alt="Placeholder image" />
-      {% endif %}
-    </div>
-    <div class="post-card-info">
-      <span class="post-card-title">{{ post.title }}</span>
-      {% if post.excerpt %}
-        <span class="post-card-excerpt">{{ post.excerpt | strip_html | truncatewords: 18 }}</span>
-      {% endif %}
-      <span class="post-card-meta">
-        <time datetime="{{ post.date | date_to_xmlschema }}">
-          {{ post.date | date: "%b %-d, %Y" }}
-        </time>
-        •
-        {% assign words = post.content | strip_html | number_of_words %}
-        {% assign reading_time = words | divided_by: 200 | plus: 1 %}
-        {{ reading_time }} min read
-      </span>
-      {% if post.tags and post.tags.size > 0 %}
-      <span class="post-card-tags">
-        {% for tag in post.tags limit:2 %}
-          <span class="post-card-tag">{{ tag }}</span>
-        {% endfor %}
-      </span>
-      {% endif %}
-    </div>
-  </a>
-</li>
+{% for post in site.posts limit:4 %}
+  {% capture post_url %}{{ site.baseurl }}{{ post.url }}{% endcapture %}
+  {% assign post_url = post_url | replace: "//", "/" %}
+  <li>
+    <a href="{{ post_url }}" class="post-card-link">
+      <div class="post-card-img-wrap">
+        {% if post.img %}
+          <img class="post-card-img"
+               src="{{ site.baseurl }}/assets/img/{{ post.img }}"
+               alt="{{ post.title }} thumbnail" />
+        {% else %}
+          <img class="post-card-img"
+               src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='105'><rect width='140' height='105' fill='%23F0EFED'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' fill='%238D897C' font-size='14' font-family='sans-serif'>No Image</text></svg>"
+               alt="Placeholder image" />
+        {% endif %}
+      </div>
+      <div class="post-card-info">
+        <span class="post-card-title">{{ post.title }}</span>
+        {% if post.excerpt %}
+          <span class="post-card-excerpt">{{ post.excerpt | strip_html | truncatewords: 18 }}</span>
+        {% endif %}
+        <span class="post-card-meta">
+          <time datetime="{{ post.date | date_to_xmlschema }}">
+            {{ post.date | date: "%b %-d, %Y" }}
+          </time>
+          •
+          {% assign words = post.content | strip_html | number_of_words %}
+          {% assign reading_time = words | divided_by: 200 | plus: 1 %}
+          {{ reading_time }} min read
+        </span>
+        {% if post.tags and post.tags.size > 0 %}
+        <span class="post-card-tags">
+          {% for tag in post.tags limit:2 %}
+            <span class="post-card-tag">{{ tag }}</span>
+          {% endfor %}
+        </span>
+        {% endif %}
+      </div>
+    </a>
+  </li>
+{% endfor %}
