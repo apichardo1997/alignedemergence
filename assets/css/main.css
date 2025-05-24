@@ -2199,3 +2199,134 @@ a.read-more:hover {
   border: 0;
   border-bottom: 1px solid var(--grey4);
 }
+
+/* = = = = = = = = = = Recent Posts - New Card Layout = = = = = = = = = = */
+
+/* Override existing recent-item styles for new card layout */
+.recent-item {
+  display: flex;
+  flex-direction: column;
+  background: var(--background);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px var(--shadow);
+  transition: transform 0.2s ease;
+  margin-bottom: 1.5rem;
+}
+
+.recent-item:hover {
+  transform: translateY(-2px);
+}
+
+/* Image styling - clean, no overlay text */
+.recent-item-img {
+  height: 200px;
+  display: block;
+  transition: opacity 0.2s ease;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.recent-item-img:hover {
+  opacity: 0.9;
+}
+
+/* Remove the old overlay styling */
+.recent-item-img::after {
+  display: none;
+}
+
+/* Content area below image */
+.recent-item-content {
+  padding: 1.5rem;
+  background: var(--background);
+}
+
+/* Date styling - thin and elegant, matches your theme */
+.recent-item-meta {
+  font-size: 0.75rem;
+  color: var(--grey2);
+  font-weight: var(--font2-light);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+  font-family: var(--font2);
+}
+
+/* Read time styling */
+.recent-item-readtime {
+  font-size: 0.75rem;
+  color: var(--grey2);
+  font-weight: var(--font2-light);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+  font-family: var(--font2);
+}
+
+/* Title styling - uses your theme fonts and colors */
+.recent-item-title {
+  margin: 0;
+  font-size: 1.4rem;
+  line-height: 1.3;
+  font-weight: var(--font2-light);
+  font-family: var(--font2);
+  position: static; /* Override the absolute positioning */
+  background: transparent; /* Remove background */
+  width: auto; /* Remove fixed width */
+  left: auto; /* Remove positioning */
+  bottom: auto; /* Remove positioning */
+  padding: 0; /* Remove padding */
+}
+
+.recent-item-title a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: var(--font2-light);
+  transition: color 0.2s ease;
+}
+
+.recent-item-title a:hover {
+  color: var(--accent);
+}
+
+/* Grid layout for recent posts */
+.recent-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+  font-size: 1rem; /* Override the 0.7em from existing styles */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .recent-list {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .recent-item-content {
+    padding: 1rem;
+  }
+  
+  .recent-item-title {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .recent-item-img {
+    height: 150px;
+  }
+  
+  .recent-item-content {
+    padding: 0.75rem;
+  }
+  
+  .recent-item-title {
+    font-size: 1.1rem;
+  }
+}
