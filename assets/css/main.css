@@ -2152,42 +2152,50 @@ a.read-more:hover {
 .main-header hr {
   display: none !important;
 }
+/* ────────────────────────────────────────────────────────────
+   Homepage: Video & “Deep Dive” Section Styling
+   ──────────────────────────────────────────────────────────── */
 
-/* Video up higher & full width */
+/* 1) Video embed: full-width, no borders, pulled up closer to the header */
 .video-wrapper {
   max-width: 1200px;
-  margin: 1rem auto;       /* pulls it closer to the top */
+  margin: 0.5rem auto;      /* half-rem top to pull it higher */
+  padding: 0;
 }
 .video-wrapper iframe {
+  display: block;
   width: 100%;
   height: 600px;
+  border: none;             /* kill any stray frame */
 }
 
-/* Deep Dive header layout */
+/* 2) Deep Dive header: flex row with title on left, “See All” on right */
 .deep-dive-header {
   max-width: 1200px;
-  margin: 2rem auto 1rem;
+  margin: 1rem auto 0;      /* slide it up under the video */
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 .deep-dive-header h2 {
+  margin: 0;
   font-family: var(--font2);
   font-size: 2rem;
-  margin: 0;
+  color: var(--accent);     /* or whichever accent you like */
 }
 .deep-dive-header a {
+  margin: 0;
   text-decoration: none;
   text-transform: uppercase;
-  font-size: .9rem;
+  font-size: 0.9rem;
   font-weight: var(--font2-bold);
   color: var(--accent-dark);
 }
 
-/* Thin underline below Deep Dive */
+/* 3) Thin underline below the Deep Dive header */
 .deep-dive-hr {
   max-width: 1200px;
-  margin: 0 auto 2rem;
-  border: none;
+  margin: 0.5rem auto 2rem; /* small gap then posts */
+  border: 0;
   border-bottom: 1px solid var(--grey4);
 }
