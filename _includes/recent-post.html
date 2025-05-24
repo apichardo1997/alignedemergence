@@ -1,51 +1,152 @@
-<!-- Replace your existing post card structure with this cleaner version -->
+/* --- Latest Explorations Section Header --- */
+.recent-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  margin: 48px 0 24px 0;
+}
+.recent-section-line {
+  flex: 1;
+  border: none;
+  border-top: 1.5px solid var(--grey4);
+  min-width: 40px;
+  max-width: 220px;
+  opacity: 0.8;
+  margin: 0;
+}
+.recent-section-title {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 2.1rem;
+  font-weight: bold;
+  color: var(--text);
+  text-align: center;
+  letter-spacing: 0.03em;
+  margin: 0 0.2em;
+  background: transparent;
+}
 
-<ul class="post-card-box">
-  {% for post in site.posts limit:4 %}
-    {% capture post_url %}{{ site.baseurl }}{{ post.url }}{% endcapture %}
-    {% assign post_url = post_url | replace: "//", "/" %}
-    
-    <li {% if forloop.first %}class="post-card-featured"{% endif %}>
-      <article class="post-card">
-        <!-- Post Image -->
-        <a href="{{ post_url }}" class="post-card-image" 
-           style="background-image: url('{{ site.baseurl }}/assets/img/{{ post.img }}');">
-          
-          <!-- Tags (optional) -->
-          {% if post.tags and post.tags.size > 0 %}
-          <div class="post-card-tags">
-            {% for tag in post.tags limit:2 %}
-              <span class="post-card-tag">{{ tag }}</span>
-            {% endfor %}
-          </div>
-          {% endif %}
-        </a>
-        
-        <!-- Post Content -->
-        <div class="post-card-content">
-          <a href="{{ post_url }}" class="post-card-title">
-            {{ post.title }}
-          </a>
-          
-          {% if post.excerpt %}
-          <p class="post-card-excerpt">
-            {{ post.excerpt | strip_html | truncatewords: 25 }}
-          </p>
-          {% endif %}
-          
-          <div class="post-card-meta">
-            <time class="post-card-date" datetime="{{ post.date | date_to_xmlschema }}">
-              {{ post.date | date: "%B %-d, %Y" }}
-            </time>
-            <span class="meta-sep"></span>
-            <span class="post-card-read-time">
-              {% assign words = post.content | strip_html | number_of_words %}
-              {% assign reading_time = words | divided_by: 200 | plus: 1 %}
-              {{ reading_time }} min read
-            </span>
-          </div>
-        </div>
-      </article>
-    </li>
-  {% endfor %}
-</ul>
+/* --- Minimal Horizontal Post Cards (Small Images) --- */
+.post-card-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: center;
+  padding: 0;
+  margin: 0 0 32px 0;
+  list-style: none;
+}
+
+.post-card-box li {
+  width: 180px; /* Slightly wider than image for text to breathe */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: none;
+  box-shadow: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.post-card-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  background: none;
+  border: none;
+  padding: 0;
+  width: 100%;
+}
+
+.post-card-img {
+  width: 100%;
+  max-width: 140px;   /* ⬅️ Small images, Figma-style */
+  aspect-ratio: 4/3;
+  background-size: cover;
+  background-position: center;
+  border-radius: 11px;
+  margin-bottom: 12px;
+  border: 1px solid var(--grey4);
+  transition: filter 0.18s;
+}
+.post-card-link:hover .post-card-img {
+  filter: brightness(0.87) saturate(1.1);
+}
+
+.post-card-info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.post-card-title {
+  font-family: var(--font2);
+  color: var(--text);
+  font-weight: var(--font2-bold);
+  font-size: 1.03rem; /* ~16-17px */
+  line-height: 1.2;
+  margin-bottom: 0.18em;
+  margin-top: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
+  transition: color 0.16s;
+}
+.post-card-link:hover .post-card-title {
+  color: var(--accent);
+}
+
+.post-card-excerpt {
+  color: var(--grey2);
+  font-family: var(--font1);
+  font-size: .97em;  /* ~15-16px */
+  margin-bottom: 0.21em;
+  margin-top: 0;
+  line-height: 1.25;
+  max-height: 2.7em;
+  overflow: hidden;
+  display: block;
+}
+
+.post-card-meta {
+  color: var(--grey2);
+  font-size: .93em;
+  font-family: var(--font1);
+  margin-bottom: 2px;
+}
+
+.post-card-tags {
+  display: flex;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.post-card-tag {
+  border: 1px solid var(--grey4);
+  border-radius: 10px;
+  font-size: 11px;
+  padding: 1px 8px;
+  background: transparent;
+  color: var(--text);
+  font-family: var(--font2);
+  font-weight: var(--font2-regular);
+  letter-spacing: .01em;
+  text-transform: lowercase;
+}
+
+/* Responsive stacking on mobile */
+@media (max-width: 700px) {
+  .post-card-box {
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+  }
+  .post-card-box li {
+    width: 96vw;
+    max-width: 220px;
+  }
+}
