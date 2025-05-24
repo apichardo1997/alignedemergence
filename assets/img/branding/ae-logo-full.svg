@@ -1,18 +1,20 @@
 <svg viewBox="0 0 1000 200" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
-      .logo-text-dark {
-        font-family: 'Georgia', 'Times New Roman', serif;
+      .logo-text-green {
+        font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
         fill: #2c5530;
-        letter-spacing: 0.05em;
       }
       .aligned {
-        font-size: 84px;
+        font-size: 72px;
         font-weight: 300;
+        letter-spacing: 0.6em;
       }
       .emergence {
-        font-size: 84px;
-        font-weight: bold;
+        font-size: 92px;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        font-family: 'Times New Roman', 'Georgia', serif;
       }
     </style>
   </defs>
@@ -20,14 +22,21 @@
   <!-- Aligned Emergence compass-tree symbol -->
   <g transform="translate(90, 100) scale(1.8)">
     <!-- Outer compass circle -->
-    <circle cx="0" cy="0" r="48" fill="none" stroke="#2c5530" stroke-width="2"/>
-    <!-- Cardinal direction markers -->
-    <line x1="0" y1="-54" x2="0" y2="-42" stroke="#2c5530" stroke-width="2"/>
-    <line x1="0" y1="42" x2="0" y2="54" stroke="#2c5530" stroke-width="2"/>
-    <line x1="-54" y1="0" x2="-42" y2="0" stroke="#2c5530" stroke-width="2"/>
-    <line x1="42" y1="0" x2="54" y2="0" stroke="#2c5530" stroke-width="2"/>
+    <circle cx="0" cy="0" r="48" fill="none" stroke="#2c5530" stroke-width="4"/>
+    <!-- Cardinal direction markers - triangular compass points -->
+    <path d="M0,-54 L-3,-45 L3,-45 Z" fill="#2c5530"/>
+    <path d="M0,54 L-3,45 L3,45 Z" fill="#2c5530"/>
+    <path d="M-54,0 L-45,-3 L-45,3 Z" fill="#2c5530"/>
+    <path d="M54,0 L45,-3 L45,3 Z" fill="#2c5530"/>
     <!-- Tree trunk -->
     <line x1="0" y1="0" x2="0" y2="15" stroke="#2c5530" stroke-width="3"/>
+    
+    <!-- Radial flow lines from center -->
+    <line x1="0" y1="0" x2="-15" y2="25" stroke="#2c5530" stroke-width="1" opacity="0.6"/>
+    <line x1="0" y1="0" x2="0" y2="25" stroke="#2c5530" stroke-width="1" opacity="0.6"/>
+    <line x1="0" y1="0" x2="15" y2="25" stroke="#2c5530" stroke-width="1" opacity="0.6"/>
+    <line x1="0" y1="0" x2="-25" y2="20" stroke="#2c5530" stroke-width="1" opacity="0.4"/>
+    <line x1="0" y1="0" x2="25" y2="20" stroke="#2c5530" stroke-width="1" opacity="0.4"/>
     <!-- Tree leaves/crown (sun-like flower) -->
     <g transform="translate(0,-15)">
       <!-- Central circle -->
@@ -51,8 +60,10 @@
     </g>
     <!-- Crescent moon (right) -->
     <path d="M20,-15 C25,-15 25,-10 20,-10 C22,-12.5 22,-12.5 20,-15" fill="#2c5530"/>
-    <!-- Horizontal ground line -->
-    <line x1="-20" y1="0" x2="20" y2="0" stroke="#2c5530" stroke-width="1.5"/>
+    <!-- Horizontal ground lines -->
+    <line x1="-25" y1="20" x2="25" y2="20" stroke="#2c5530" stroke-width="1"/>
+    <line x1="-48" y1="28" x2="48" y2="28" stroke="#2c5530" stroke-width="1.5"/>
+    <line x1="-30" y1="25" x2="30" y2="25" stroke="#2c5530" stroke-width="1"/>
     <!-- Tree roots -->
     <g stroke="#2c5530" stroke-width="1.5" fill="none">
       <path d="M-5,15 Q-10,20 -15,25"/>
@@ -64,8 +75,8 @@
   </g>
   
   <!-- ALIGNED text -->
-  <text x="200" y="80" class="logo-text-dark aligned">ALIGNED</text>
+  <text x="220" y="75" class="logo-text-green aligned">ALIGNED</text>
   
   <!-- EMERGENCE text -->
-  <text x="200" y="160" class="logo-text-dark emergence">EMERGENCE</text>
+  <text x="220" y="170" class="logo-text-green emergence">EMERGENCE</text>
 </svg>
