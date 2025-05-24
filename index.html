@@ -12,17 +12,3 @@ layout: home-page
   </iframe>
 </div>
 
-<!-- Deep Dive header -->
-<section class="deep-dive-header">
-  <h2>Deep Dive</h2>
-  <a href="/blog">See All</a>
-</section>
-<hr class="deep-dive-hr" />
-
-<!-- Post cards loop -->
-<ol class="post-card-box clearfix">
-  {% for post in paginator.posts %}
-    {% include remove_double_slash.html %}
-    <li>…</li>
-  {% endfor %}
-</ol>
