@@ -1,39 +1,51 @@
-{% include calculate_relative_base.html %}
+<!-- Replace your existing post card structure with this cleaner version -->
 
-<!-- Recent‐Posts Card Deck -->
-<ul class="post-card-box clearfix">
-  {% for post in site.posts offset:0 limit:4 %}
+<ul class="post-card-box">
+  {% for post in site.posts limit:4 %}
     {% capture post_url %}{{ site.baseurl }}{{ post.url }}{% endcapture %}
     {% assign post_url = post_url | replace: "//", "/" %}
-
-    <li>
-      <div class="post-card">
-        <!-- 1) Background image -->
-        <a href="{{ post_url }}"
-           class="post-card-image"
-           style="background-image: url('{{ relativebase }}assets/img/{{ post.img }}');">
+    
+    <li {% if forloop.first %}class="post-card-featured"{% endif %}>
+      <article class="post-card">
+        <!-- Post Image -->
+        <a href="{{ post_url }}" class="post-card-image" 
+           style="background-image: url('{{ site.baseurl }}/assets/img/{{ post.img }}');">
+          
+          <!-- Tags (optional) -->
+          {% if post.tags and post.tags.size > 0 %}
+          <div class="post-card-tags">
+            {% for tag in post.tags limit:2 %}
+              <span class="post-card-tag">{{ tag }}</span>
+            {% endfor %}
+          </div>
+          {% endif %}
         </a>
-
-        <!-- 2) Overlay body -->
-        <div class="post-card-body">
-          <!-- (optional) category tags here -->
-          <!-- <div class="post-card-tags">…</div> -->
-
-          <!-- 3) Title + meta -->
-          <div class="post-card-title-and-meta">
-            <h3 class="post-card-link">{{ post.title }}</h3>
-            <div class="post-card-meta">
-              {{ post.date | date: "%d %b, %Y" | upcase }}
-              <span class="meta-sep"></span>
-              {{ post.content 
-                 | strip_html 
-                 | number_of_words 
-                 | divided_by:200 
-                 | plus:1 }} MIN READ
-            </div>
+        
+        <!-- Post Content -->
+        <div class="post-card-content">
+          <a href="{{ post_url }}" class="post-card-title">
+            {{ post.title }}
+          </a>
+          
+          {% if post.excerpt %}
+          <p class="post-card-excerpt">
+            {{ post.excerpt | strip_html | truncatewords: 25 }}
+          </p>
+          {% endif %}
+          
+          <div class="post-card-meta">
+            <time class="post-card-date" datetime="{{ post.date | date_to_xmlschema }}">
+              {{ post.date | date: "%B %-d, %Y" }}
+            </time>
+            <span class="meta-sep"></span>
+            <span class="post-card-read-time">
+              {% assign words = post.content | strip_html | number_of_words %}
+              {% assign reading_time = words | divided_by: 200 | plus: 1 %}
+              {{ reading_time }} min read
+            </span>
           </div>
         </div>
-      </div>
+      </article>
     </li>
   {% endfor %}
 </ul>
