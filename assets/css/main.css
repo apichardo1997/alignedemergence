@@ -1550,9 +1550,10 @@ code {
 
 .main-footer {
   padding: 5px 15px;
-  background-color: var(--main-dim);
-  box-shadow: 0 5px 5px -6px var(--shadow) inset;
-}
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}}
 
 .footer-wrapper {
   display: grid;
