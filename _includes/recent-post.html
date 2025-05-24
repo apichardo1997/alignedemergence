@@ -8,42 +8,14 @@
         <div class="recent-item">
           {% include escape-404.html %}
           {% include remove_double_slash.html %}
-
-          <!-- image link -->
-          <a href="{{ post_url }}"
-             class="recent-item-img"
-             style="background:
-               url('{{ relativebase }}assets/img/{{ post.img }}')
-               center no-repeat;
-               background-size: cover;">
-          </a>
-
-          <!-- title + meta -->
-          <div class="recent-item-info">
-            <h3 class="recent-item-title">
-              <a href="{{ post_url }}">{{ post.title }}</a>
-            </h3>
-            <div class="recent-item-meta">
-              <!-- date -->
-              <span class="post-date">
-                {{ post.date | date: "%d %b, %Y" }}
-              </span>
-              <!-- category (first only) -->
-              {% if post.categories %}
-                <span class="post-tag">
-                  {{ post.categories[0] | capitalize }}
-                </span>
-              {% endif %}
-              <!-- author -->
-              {% if post.author %}
-                <span class="post-author">
-                  By {{ post.author }}
-                </span>
-              {% endif %}
+          <a href="{{ post_url }}" class="recent-item-img" style="background: url('{{ relativebase }}assets/img/{{ post.img }}') center no-repeat; background-size: cover;">
+            <div class="recent-item-title">
+              <span>{{ post.title }}</span>
+              {% include post_meta.html type="recent-item-meta" date="none" %}
             </div>
-          </div>
+          </a>
         </div>
       {% endif %}
     {% endfor %}
   </div>
-</div>
+</div> <!-- End Recent-Box -->
