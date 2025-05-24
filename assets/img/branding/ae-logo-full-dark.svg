@@ -24,7 +24,7 @@
   <!-- Aligned Emergence compass-tree symbol -->
   <g transform="translate(90, 100) scale(1.8)">
     <!-- Outer compass circle -->
-    <circle cx="0" cy="0" r="48" fill="none" stroke="#E9E9E9" stroke-width="3"/>
+    <circle cx="0" cy="0" r="48" fill="none" stroke="#E9E9E9" stroke-width="4"/>
     <!-- Cardinal direction markers - triangular compass points -->
     <path d="M0,-54 L-3,-45 L3,-45 Z" fill="#E9E9E9"/>
     <path d="M0,54 L-3,45 L3,45 Z" fill="#E9E9E9"/>
