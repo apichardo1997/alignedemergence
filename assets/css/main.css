@@ -2159,7 +2159,7 @@ a.read-more:hover {
 /* 1) Video embed: full-width, no borders, pulled up closer to the header */
 .video-wrapper {
   max-width: 1200px;
-  margin: 0.5rem auto;      /* half-rem top to pull it higher */
+  margin: 0.3rem auto;      /* half-rem top to pull it higher */
   padding: 0;
 }
 .video-wrapper iframe {
