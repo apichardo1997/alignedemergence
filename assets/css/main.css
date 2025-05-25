@@ -1391,7 +1391,7 @@ code {
 /* --- Post Cards Grid Container --- */
 .post-card-box {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 28px;
   padding: 0;
   margin: 0 auto 32px auto;
@@ -1454,7 +1454,7 @@ code {
   font-family: var(--font1); /* Use serif font like screenshot */
   color: var(--text);
   font-weight: var(--font1-bold);
-  font-size: 1.8rem; /* Larger, more prominent */
+  font-size: 1.5rem; /* Larger, more prominent */
   line-height: 1.2;
   margin: 0 0 12px 0;
   transition: color 0.2s ease;
