@@ -5,13 +5,18 @@ layout: home-page
 
 <!-- video-wrapper: positions the iframe and the button -->
 <div class="video-wrapper">
-  <!-- YouTube player, muted so browsers will autoplay -->
+  <!-- YouTube player, muted so browsers will autoplay and loop -->
   <iframe
     id="yt-player"
-    src="https://www.youtube.com/embed/UjEngEpiJKo?autoplay=1&mute=1&enablejsapi=1"
+    src="https://www.youtube.com/embed/UjEngEpiJKo
+      ?autoplay=1
+      &mute=1
+      &enablejsapi=1
+      &loop=1
+      &playlist=UjEngEpiJKo"
     allow="autoplay; fullscreen; encrypted-media; gyroscope; picture-in-picture; web-share"
     allowfullscreen>
   </iframe>
-
+</div>
 
 {% include recent-post.html %}
