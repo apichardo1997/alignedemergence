@@ -1404,15 +1404,15 @@ code {
   background: var(--background);
   padding: 24px; /* Slightly more padding for breathing room */
   border-radius: 16px; /* More rounded like screenshot */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06); /* More subtle shadow */
+  box-shadow: none; /* 🚨 REMOVED: No shadows */
   transition: all 0.3s ease;
   margin: 0;
-  border: 1px solid var(--grey5); /* Add subtle border */
+  border: none; /* removed border */
 }
 
 .post-card-box li:hover {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-  transform: translateY(-2px); /* Subtle lift effect */
+  box-shadow: none; /* 🚨 REMOVED: No hover shadows */
+  transform: none; /* 🚨 REMOVED: No lift effect */
 }
 
 /* Post Image */
@@ -1429,9 +1429,14 @@ code {
   transition: all 0.3s ease;
 }
 
+/* Post Link - Remove Underlines */
+.post-card-link {
+  text-decoration: none !important; /* Remove underlines */
+  color: inherit;
+}
+
 .post-card-link:hover .post-card-img {
-  filter: brightness(0.92) saturate(1.08);
-  transform: translateY(-1px);
+  text-decoration: none !important; /* Keep underlines removed on hover */
 }
 
 /* Post Content Container */
@@ -1453,11 +1458,8 @@ code {
   line-height: 1.2;
   margin: 0 0 12px 0;
   transition: color 0.2s ease;
-  display: -webkit-box;
-  -webkit-line-clamp: 3; /* Allow more lines for longer titles */
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  text-align: left; /* 🚨 ADDED: Left align to border */
+  /* 🚨 REMOVED: No text clamping - let it wrap naturally */
 }
 
 .post-card-link:hover .post-card-title {
@@ -1555,6 +1557,12 @@ code {
     grid-template-columns: 1fr;
     max-width: 300px;
   }
+  /* Remove underlines from all post card elements */
+.post-card-box a,
+.post-card-box a:hover,
+.post-card-box a:visited {
+  text-decoration: none !important;
+}
 }
 /* 🚨 END: OLD POST CARD STYLES - REPLACE UP TO HERE 🚨 */
 
