@@ -2060,3 +2060,153 @@ html:not([data-theme="dark"]) .logo-link:hover svg {
 html:not([data-theme="dark"]) .footer-nav a:hover {
   color: #DB504A !important; /* Accent color */
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   🦶 FOOTER - LIGHT MODE FIX
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+/* Light mode footer background */
+html:not([data-theme="dark"]) .main-footer {
+  background-color: #F0EFED !important; /* Your --grey5 color */
+  box-shadow: 0 -1px 3px rgba(0,0,0,0.05) inset;
+}
+
+/* Dark mode footer (keep as is) */
+html[data-theme="dark"] .main-footer {
+  background-color: var(--main-dim);
+  box-shadow: 0 5px 5px -6px var(--shadow) inset;
+}
+
+/* Light mode text colors */
+html:not([data-theme="dark"]) .footer-wrapper .copyright,
+html:not([data-theme="dark"]) .footer-nav a {
+  color: #5F5E58 !important; /* Your --grey1 color */
+}
+
+/* Light mode SVG icon */
+html:not([data-theme="dark"]) .footer-wrapper svg,
+html:not([data-theme="dark"]) .logo-symbol {
+  fill: #5F5E58 !important; /* Your --grey1 color */
+  color: #5F5E58 !important;
+}
+
+/* Light mode hover states */
+html:not([data-theme="dark"]) .logo-link:hover {
+  color: #326273 !important; /* Your --main color */
+}
+
+html:not([data-theme="dark"]) .logo-link:hover svg {
+  fill: #326273 !important; /* Your --main color */
+}
+
+html:not([data-theme="dark"]) .footer-nav a:hover {
+  color: #DB504A !important; /* Your --accent color */
+  opacity: 0.8;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   🏷️ TAGS - MATCHING YOUR SCREENSHOT STYLE
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+/* Tag cloud container */
+.tag-cloud {
+  margin: 2em 0;
+  text-align: center;
+}
+
+/* Tags list */
+.tags {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* Individual tag styling */
+.tags li a,
+.tag {
+  display: inline-block;
+  background: #F0EFED; /* Light grey background like screenshot */
+  color: #5F5E58 !important; /* Dark grey text */
+  border: none;
+  border-radius: 20px;
+  padding: 6px 16px;
+  font-family: var(--font2);
+  font-weight: var(--font2-regular);
+  font-size: 13px;
+  text-decoration: none !important;
+  text-transform: lowercase;
+  transition: all 0.2s ease;
+  line-height: 1.4;
+}
+
+/* Tag hover state */
+.tags li a:hover,
+.tag:hover {
+  background: #DAD7D2; /* Slightly darker grey on hover */
+  color: #2B323B !important; /* Even darker text */
+  text-decoration: none !important;
+  transform: translateY(-1px);
+}
+
+/* Tag count (if you have counts) */
+.tags li a span {
+  opacity: 0.7;
+  font-size: 0.9em;
+  margin-left: 2px;
+}
+
+/* Dark mode overrides for tags */
+html[data-theme="dark"] .tags li a,
+html[data-theme="dark"] .tag {
+  background: #3B3D40; /* Dark grey background */
+  color: #B1B1AE !important; /* Light grey text */
+}
+
+html[data-theme="dark"] .tags li a:hover,
+html[data-theme="dark"] .tag:hover {
+  background: #636564; /* Lighter grey on hover */
+  color: #CBCCCD !important; /* Even lighter text */
+}
+
+/* Post card tags (on homepage) - same style */
+.post-card-tag {
+  background: #F0EFED !important;
+  border: none !important;
+  color: #5F5E58 !important;
+  font-size: 11px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  text-transform: lowercase;
+}
+
+.post-card-tag:hover {
+  background: #DAD7D2 !important;
+  color: #2B323B !important;
+}
+
+/* Dark mode post card tags */
+html[data-theme="dark"] .post-card-tag {
+  background: #3B3D40 !important;
+  color: #B1B1AE !important;
+}
+
+html[data-theme="dark"] .post-card-tag:hover {
+  background: #636564 !important;
+  color: #CBCCCD !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   📄 FOOTER COPYRIGHT YEAR FIX
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+.copyright {
+  text-align: center;
+  color: inherit; /* Use parent color */
+  font-size: 0.75em;
+  opacity: 0.8;
+  font-family: var(--font2);
+}
