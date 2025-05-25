@@ -2029,37 +2029,6 @@ div.tag-cloud {
 
 /* ═══════════════════════════════════════════════
 
-/* Add this CSS to fix your light mode footer */
-
-/* Force light mode footer to be lighter */
-html:not([data-theme="dark"]) .main-footer {
-  background-color: #F0EFED !important; /* Light grey background */
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1) inset;
-}
-
-/* Light mode text colors */
-html:not([data-theme="dark"]) .footer-wrapper .copyright,
-html:not([data-theme="dark"]) .footer-nav a {
-  color: #5F5E58 !important; /* Darker text for contrast */
-}
-
-/* Light mode SVG icon */
-html:not([data-theme="dark"]) .footer-wrapper svg {
-  fill: #5F5E58 !important; /* Darker SVG for contrast */
-}
-
-/* Light mode hover states */
-html:not([data-theme="dark"]) .logo-link:hover {
-  color: #326273 !important; /* Main color */
-}
-
-html:not([data-theme="dark"]) .logo-link:hover svg {
-  fill: #326273 !important; /* Main color */
-}
-
-html:not([data-theme="dark"]) .footer-nav a:hover {
-  color: #DB504A !important; /* Accent color */
-}
 
 /* ═══════════════════════════════════════════════════════════════════════════════
    🦶 FOOTER - LIGHT MODE FIX
