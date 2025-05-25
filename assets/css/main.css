@@ -1368,7 +1368,7 @@ code {
 .recent-section-line {
   flex: 1;
   border: none;
-  border-top: 1.5px solid var(--grey4);
+  border-top: 1.5px solid var(--text);
   min-width: 40px;
   max-width: 220px;
   opacity: 0.8;
