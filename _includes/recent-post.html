@@ -25,16 +25,7 @@
              style="background-image: url('{{ site.baseurl }}/assets/img/{{ post.img }}');"
              title="{{ post.title }}"></div>
         
-        <div class="post-card-info">
-          <!-- 🏷️ Post Tags (up to 2) -->
-          {% if post.tags and post.tags.size > 0 %}
-          <span class="post-card-tags">
-            {% for tag in post.tags limit:2 %}
-              <span class="post-card-tag">{{ tag }}</span>
-            {% endfor %}
-          </span>
-          {% endif %}
-
+      
           <!-- 📝 Post Title (ALWAYS shows) -->
           <span class="post-card-title">{{ post.title }}</span>
           
@@ -56,10 +47,20 @@
             {% assign reading_time = words | divided_by: 200 | plus: 1 %}
             {{ reading_time }} min read
           </span>
-        </div>
-      </a>
-    </li>
-  {% endfor %}
-</ul>
+          <div class="post-card-info">
+            <!-- 🏷️ Post Tags (up to 2) -->
+            {% if post.tags and post.tags.size > 0 %}
+            <span class="post-card-tags">
+              {% for tag in post.tags limit:2 %}
+                <!-- 🏷️ Individual Tag (styled as a label for post tags) -->
+                <span class="post-card-tag">{{ tag }}</span>
+              {% endfor %}
+            </span>
+            {% endif %}
+          </div>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
 
 
