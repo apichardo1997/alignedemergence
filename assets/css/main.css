@@ -1357,6 +1357,7 @@ code {
 /* ═══════════════════════════════════════════════════════════════════════════════
    🃏 POST CARDS - ⚠️ THIS IS THE SECTION TO REPLACE FOR NEW CARD DESIGN ⚠️
 /* --- Latest Explorations Section Header --- */
+/* --- Latest Explorations Section Header --- */
 .recent-section-header {
   display: flex;
   align-items: center;
@@ -1393,38 +1394,30 @@ code {
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 28px;
   padding: 0;
-  margin: 0 0 32px 0;
+  margin: 0 auto 32px auto;
   list-style: none;
   max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
+  /* Removed duplicate margin-left/right: auto - combined into margin shorthand */
 }
 
+/* *** CHANGED: Added background, padding, border-radius, box-shadow, and transition for card styling */
 .post-card-box li {
-  display: flex;
-  flex-direction: column;
-  background: none;
-  box-shadow: none;
-  border: none;
-  padding: 0;
-  margin: 0;
+  background: var(--grey5); /* light cream background */
+  padding: 16px;             /* Added padding for inner spacing */
+  border-radius: 10px;       /* Rounded corners */
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  transition: box-shadow 0.3s ease; /* Smooth hover shadow */
 }
 
-.post-card-link {
-  display: flex;
-  flex-direction: column;
-  text-decoration: none;
-  background: none;
-  border: none;
-  padding: 0;
-  width: 100%;
-  height: 100%;
+/* *** CHANGED: Added hover effect for box-shadow */
+.post-card-box li:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .post-card-img {
   width: 100%;
-  max-width: 160px;
-  aspect-ratio: 4/3;
+  max-width: 160px;          /* Slightly increased from original 140px or less */
+  aspect-ratio: 4 / 3;
   background-size: cover;
   background-position: center;
   border-radius: 8px;
@@ -1444,6 +1437,7 @@ code {
   flex-direction: column;
   flex-grow: 1;
   text-align: left;
+  gap: 8px;  /* *** CHANGED: Added spacing between elements inside info */
 }
 
 .post-card-title {
@@ -1527,7 +1521,7 @@ code {
   }
   
   .post-card-img {
-    max-width: 140px;
+    max-width: 140px;  /* *** CHANGED: smaller image on smaller screens */
   }
 }
 
