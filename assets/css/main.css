@@ -1369,8 +1369,8 @@ code {
   flex: 1;
   border: none;
   border-top: 1.5px solid var(--text);
-  min-width: 40px;
-  max-width: 220px;
+  min-width: 60px; /* Increase this value to make the line longer */
+  max-width: 300px; /* Increase this value to allow for a longer maximum length */
   opacity: 0.8;
   margin: 0;
 }
