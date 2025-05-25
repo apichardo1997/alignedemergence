@@ -52,7 +52,7 @@
           <!-- 🏷️ Post Tags (up to 2) -->
           {% if post.tags and post.tags.size > 0 %}
           <span class="post-card-tags">
-            {% for tag in post.tags limit:2 %}
+            {% for tag in post.tags limit:1 %}
               <span class="post-card-tag">{{ tag }}</span>
             {% endfor %}
           </span>
