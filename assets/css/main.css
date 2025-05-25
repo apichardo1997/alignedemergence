@@ -1368,7 +1368,7 @@ code {
 .recent-section-line {
   flex: 1;
   border: none;
-  border-top: 1.5px solid var(--text);
+  border-top: 1.5px solid var(--grey5);
   min-width: 60px; /* Increase this value to make the line longer */
   max-width: 300px; /* Increase this value to allow for a longer maximum length */
   opacity: 0.8;
