@@ -1356,7 +1356,7 @@ code {
 
 /* ═══════════════════════════════════════════════════════════════════════════════
    🃏 POST CARDS - ⚠️ THIS IS THE SECTION TO REPLACE FOR NEW CARD DESIGN ⚠️
-/* /* --- Latest Explorations Section Header --- */
+/* --- Latest Explorations Section Header --- */
 .recent-section-header {
   display: flex;
   align-items: center;
@@ -1401,30 +1401,32 @@ code {
 
 /* Individual Post Card */
 .post-card-box li {
-  background: var(--background); /* Already theme-aware ✅ */
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease;
+  background: var(--background);
+  padding: 24px; /* Slightly more padding for breathing room */
+  border-radius: 16px; /* More rounded like screenshot */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06); /* More subtle shadow */
+  transition: all 0.3s ease;
   margin: 0;
+  border: 1px solid var(--grey5); /* Add subtle border */
 }
 
 .post-card-box li:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px); /* Subtle lift effect */
 }
 
 /* Post Image */
 .post-card-img {
   width: 100%;
-  max-width: 160px;
-  aspect-ratio: 4 / 3;
+  max-width: 100%; /* Full width like screenshot */
+  aspect-ratio: 16 / 9; /* Wider aspect ratio like screenshot */
   background-size: cover;
   background-position: center;
-  border-radius: 8px;
-  margin: 0 auto 14px auto;
+  border-radius: 12px;
+  margin: 0 0 20px 0; /* More space below image */
   border: none;
   box-shadow: none;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .post-card-link:hover .post-card-img {
@@ -1444,19 +1446,18 @@ code {
 
 /* Post Title */
 .post-card-title {
-  font-family: var(--font2);
-  color: var(--text); /* 🚨 FIXED: Use theme-aware text color */
-  font-weight: var(--font2-bold);
-  font-size: 1.15rem;
-  line-height: 1.3;
-  margin: 0 0 8px 0;
+  font-family: var(--font1); /* Use serif font like screenshot */
+  color: var(--text);
+  font-weight: var(--font1-bold);
+  font-size: 1.8rem; /* Larger, more prominent */
+  line-height: 1.2;
+  margin: 0 0 12px 0;
   transition: color 0.2s ease;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3; /* Allow more lines for longer titles */
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  min-height: 2.6em;
 }
 
 .post-card-link:hover .post-card-title {
@@ -1465,14 +1466,14 @@ code {
 
 /* Post Excerpt */
 .post-card-excerpt {
-  color: var(--grey1); /* 🚨 FIXED: Use theme-aware grey color */
+  color: var(--grey2); /* Lighter, more subtle */
   font-family: var(--font1);
-  font-size: 0.92em;
-  margin: 0 0 12px 0;
-  line-height: 1.4;
+  font-size: 0.95em;
+  margin: 0 0 16px 0;
+  line-height: 1.5;
   flex-grow: 1;
   display: -webkit-box;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 3; /* Fewer lines for cleaner look */
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -1480,11 +1481,12 @@ code {
 
 /* Post Meta Info */
 .post-card-meta {
-  color: var(--grey3); /* Already theme-aware ✅ */
-  font-size: 0.82em;
+  color: var(--grey2); /* Match excerpt color for consistency */
+  font-size: 0.9em; /* Slightly larger for better readability */
   font-family: var(--font1);
   font-weight: var(--font1-regular);
-  margin: 0 0 8px 0;
+  margin: 0 0 16px 0; /* More space before tags */
+  order: 2; /* Position after excerpt */
 }
 
 /* Tags container (single tag only) */
@@ -1493,20 +1495,22 @@ code {
   padding: 0;
 }
 
-/* Single Tag Style */
+/* Single Tag Style - Minimal Design */
 .post-card-tag {
-  background: var(--accent); /* Already theme-aware ✅ */
-  border-radius: 12px;
-  color: white; /* This can stay white since it's on the accent background */
+  background: transparent; /* Remove red background */
+  border: 1px solid var(--grey3); /* Subtle border instead */
+  border-radius: 20px;
+  color: var(--grey1); /* Theme-aware text color */
   font-family: var(--font2);
   font-weight: var(--font2-regular);
-  font-size: 0.75em;
-  padding: 4px 12px;
+  font-size: 0.8em;
+  padding: 6px 14px;
   text-transform: lowercase;
   display: inline-block;
   cursor: default;
-  transition: background 0.2s ease;
-  margin-top: 1em;
+  transition: all 0.2s ease;
+  margin-top: auto; /* Push to bottom */
+  order: 3; /* Position last */
 }
 
 /* Hide all but the first tag */
@@ -1515,8 +1519,9 @@ code {
 }
 
 .post-card-tag:hover {
-  background: var(--accent-dark); /* Already theme-aware ✅ */
-  border-color: transparent;
+  background: var(--grey5); /* Subtle background on hover */
+  border-color: var(--grey2);
+  color: var(--text); /* Darker text on hover */
 }
 
 /* Responsive adjustments */
