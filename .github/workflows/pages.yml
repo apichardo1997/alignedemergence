@@ -26,7 +26,14 @@ jobs:
           ruby-version: '3.2'
           bundler-cache: true
           cache-version: 1
+      - name: Update Bundler
+        run: gem install bundler
 
+      -  name: Debug Ruby and Bundler Versions
+        run: |
+        ruby -v
+        bundler -v
+        
       - name: Install dependencies
         run: bundle install
 
