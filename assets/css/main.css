@@ -1458,7 +1458,7 @@ code {
   line-height: 1.2;
   margin: 0 0 12px 0;
   transition: color 0.2s ease;
-  text-align: left; /* 🚨 ADDED: Left align to border */
+  text-align: justify; /* 🚨 UPDATED: Justified alignment */
   /* 🚨 REMOVED: No text clamping - let it wrap naturally */
 }
 
