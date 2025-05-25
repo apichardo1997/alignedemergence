@@ -1519,12 +1519,7 @@ code {
     max-width: 300px;
   }
 }
-/* Remove underlines from all post card elements */
-.post-card-box a,
-.post-card-box a:hover,
-.post-card-box a:visited {
-  text-decoration: none !important;
-}
+
 /* 🚨 END: OLD POST CARD STYLES - REPLACE UP TO HERE 🚨 */
 
 /* ═══════════════════════════════════════════════════════════════════════════════
