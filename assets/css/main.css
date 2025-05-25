@@ -1906,8 +1906,8 @@ div.tag-cloud {
 .tags li a {
   margin-right: 10px;
   margin-bottom: 10px;
-  line-height: 20px;
-  font-size: 12px;
+  line-height: 10px;
+  font-size: 10px;
   text-decoration: none;
   color: var(--grey1) !important;
   border: 2px solid transparent;
