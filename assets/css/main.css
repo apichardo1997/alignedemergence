@@ -617,63 +617,6 @@ a.read-more:hover {
   }
   
   /* 🚨 OLD POST CARD MOBILE STYLES - NEED TO UPDATE THESE 🚨 */
-  .post-card-box {
-    margin: revert;
-  }
-  
-  .post-card-box li {
-    width: 100%;
-    margin-bottom: 20px;
-  }
-  
-  .post-card-box li:last-child {
-    margin-bottom: 0;
-  }
-  /* 🚨 END OLD POST CARD MOBILE STYLES 🚨 */
-  
-  .recent-item-img {
-    width: 49%;
-  }
-  
-  .recent-item-title {
-    font-size: 12px;
-    left: 2.5%;
-    bottom: 2.5%;
-    width: 97.5%;
-    color: white;
-  }
-  
-  .about-container {
-    margin: 25px 0;
-  }
-  
-  .top.is-active {
-    right: 10px;
-  }
-  
-  tweet {
-    margin-left: 0;
-  }
-  
-  .footer-wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .footer-nav {
-    font-size: .9rem;
-  }
-  
-  {
-    padding: 5px;
-  }
-  
-  .copyright {
-    display: none;
-  }
-}
-
 /* ─────────────────────────────────────────────────────────────────────────────── 
    📱 MOBILE PHONES (480px and below) - ⚠️ MORE POST CARD MOBILE STYLES HERE ⚠️
    ─────────────────────────────────────────────────────────────────────────────── */
@@ -1357,6 +1300,7 @@ code {
 /* ═══════════════════════════════════════════════════════════════════════════════
    🃏 POST CARDS - ⚠️ THIS IS THE SECTION TO REPLACE FOR NEW CARD DESIGN ⚠️
 /* --- Latest Explorations Section Header --- */
+/* --- Latest Explorations Section Header --- */
 .recent-section-header {
   display: flex;
   align-items: center;
@@ -1404,15 +1348,26 @@ code {
   background: var(--background);
   padding: 24px; /* Slightly more padding for breathing room */
   border-radius: 16px; /* More rounded like screenshot */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06); /* More subtle shadow */
+  box-shadow: none; /* 🚨 REMOVED: No shadows */
   transition: all 0.3s ease;
   margin: 0;
   border: 1px solid var(--grey5); /* Add subtle border */
 }
 
 .post-card-box li:hover {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-  transform: translateY(-2px); /* Subtle lift effect */
+  box-shadow: none; /* 🚨 REMOVED: No hover shadows */
+  transform: none; /* 🚨 REMOVED: No lift effect */
+}
+
+/* Post Link - Remove Underlines */
+.post-card-link {
+  text-decoration: none !important; /* Remove underlines */
+  color: inherit;
+  display: block;
+}
+
+.post-card-link:hover {
+  text-decoration: none !important; /* Keep underlines removed on hover */
 }
 
 /* Post Image */
@@ -1434,6 +1389,16 @@ code {
   transform: translateY(-1px);
 }
 
+/* Post Link - Remove Underlines */
+.post-card-link {
+  text-decoration: none !important; /* Remove underlines */
+  color: inherit;
+}
+
+.post-card-link:hover {
+  text-decoration: none !important; /* Keep underlines removed on hover */
+}
+
 /* Post Content Container */
 .post-card-info {
   width: 100%;
@@ -1453,11 +1418,8 @@ code {
   line-height: 1.2;
   margin: 0 0 12px 0;
   transition: color 0.2s ease;
-  display: -webkit-box;
-  -webkit-line-clamp: 3; /* Allow more lines for longer titles */
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  text-align: left; /* 🚨 ADDED: Left align to border */
+  /* 🚨 REMOVED: No text clamping - let it wrap naturally */
 }
 
 .post-card-link:hover .post-card-title {
@@ -1481,12 +1443,13 @@ code {
 
 /* Post Meta Info */
 .post-card-meta {
-  color: var(--grey2); /* Match excerpt color for consistency */
-  font-size: 0.9em; /* Slightly larger for better readability */
-  font-family: var(--font1);
-  font-weight: var(--font1-regular);
+  color: var(--grey3); /* More subtle, like screenshot */
+  font-size: 0.95em; /* Slightly larger for better readability */
+  font-family: var(--font1); /* Use serif font to match title */
+  font-weight: var(--font1-light); /* Lighter weight like screenshot */
   margin: 0 0 16px 0; /* More space before tags */
   order: 2; /* Position after excerpt */
+  letter-spacing: 0.02em; /* Slight letter spacing for elegance */
 }
 
 /* Tags container (single tag only) */
@@ -1555,6 +1518,12 @@ code {
     grid-template-columns: 1fr;
     max-width: 300px;
   }
+}
+/* Remove underlines from all post card elements */
+.post-card-box a,
+.post-card-box a:hover,
+.post-card-box a:visited {
+  text-decoration: none !important;
 }
 /* 🚨 END: OLD POST CARD STYLES - REPLACE UP TO HERE 🚨 */
 
