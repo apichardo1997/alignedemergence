@@ -1357,180 +1357,113 @@ code {
 /* ═══════════════════════════════════════════════════════════════════════════════
    🃏 POST CARDS - ⚠️ THIS IS THE SECTION TO REPLACE FOR NEW CARD DESIGN ⚠️
 /* --- Latest Explorations Section Header --- */
-/* --- Latest Explorations Section Header --- */
-/* --- Latest Explorations Section Header --- */
-.recent-section-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 22px;
-  margin: 48px 0 32px 0;
-}
-
-.recent-section-line {
-  flex: 1;
-  border: none;
-  border-top: 1.5px solid var(--grey4);
-  min-width: 40px;
-  max-width: 220px;
-  opacity: 0.8;
-  margin: 0;
-}
-
-.recent-section-title {
-  font-family: 'Times New Roman', Times, serif;
-  font-size: 2.0rem;
-  font-weight: bold;
-  font-style: italic;
-  color: white; /* White text for dark background */
-  text-align: center;
-  letter-spacing: 0.03em;
-  margin: 0 0.2em;
-  background: transparent;
-  white-space: nowrap;
-}
-
-/* --- Post Cards Grid Container --- */
-.post-card-box {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 28px;
-  padding: 0;
-  margin: 0 auto 32px auto;
-  list-style: none;
-  max-width: 900px;
-}
-
-/* Individual Post Card */
+/* --- Post Cards Container --- */
 .post-card-box li {
-  background: var(--background); /* EXACT match to site background */
-  padding: 20px;                 /* Comfortable spacing inside card */
-  border-radius: 12px;           /* Rounded corners */
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  background: var(--background);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: none; /* Removed shadow as requested */
   transition: box-shadow 0.3s ease;
   margin: 0;
 }
 
-.post-card-box li:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow on hover */
-}
-
-/* Post Image */
-.post-card-img {
-  width: 100%;
-  max-width: 160px;
-  aspect-ratio: 4 / 3;
-  background-size: cover;
-  background-position: center;
-  border-radius: 8px;
-  margin: 0 auto 14px auto;
-  border: none; /* Remove border for flush look */
-  box-shadow: none; /* Remove shadow */
-  transition: all 0.2s ease;
-}
-
-.post-card-link:hover .post-card-img {
-  filter: brightness(0.92) saturate(1.08);
-  transform: translateY(-1px);
-}
-
-/* Post Content Container */
-.post-card-info {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  text-align: left;
-  gap: 8px;
-}
-
-/* Post Title */
-.post-card-title {
-  font-family: var(--font2);
-  color: white; /* White text */
-  font-weight: var(--font2-bold);
-  font-size: 1.15rem;
-  line-height: 1.3;
-  margin: 0 0 8px 0;
-  transition: color 0.2s ease;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  min-height: 2.6em;
-}
-
-.post-card-link:hover .post-card-title {
-  color: var(--accent);
-}
-
-/* Post Excerpt */
-.post-card-excerpt {
-  color: white;
-  font-family: var(--font1);
-  font-size: 0.92em;
-  margin: 0 0 12px 0;
-  line-height: 1.4;
-  flex-grow: 1;
-  display: -webkit-box;
-  -webkit-line-clamp: 4; /* Show more lines for clarity */
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-/* Post Meta Info */
-.post-card-meta {
-  color: var(--grey3); /* subtle lighter text */
-  font-size: 0.82em;
-  font-family: var(--font1);
-  font-weight: var(--font1-regular);
-  margin: 0 0 8px 0;
-}
-
-/* Tags container (single tag only) */
+/* --- Tags --- */
 .post-card-tags {
   margin-top: auto;
   padding: 0;
 }
 
-/* Single Tag Style */
+/* Smaller pill tags */
 .post-card-tag {
-  background: var(--accent);
-  border-radius: 12px;
-  color: white;
+  background: transparent;  /* Transparent background by default */
+  border: 1px solid var(--accent);
+  border-radius: 10px;      /* Slightly smaller pill */
+  color: var(--accent);     /* Accent color text */
   font-family: var(--font2);
   font-weight: var(--font2-regular);
-  font-size: 0.75em;
-  padding: 4px 12px;
+  font-size: 0.65em;        /* Smaller font size */
+  padding: 2px 8px;         /* Smaller padding */
   text-transform: lowercase;
   display: inline-block;
   cursor: default;
-  transition: background 0.2s ease;
+  transition: all 0.2s ease;
   margin-top: 1em;
 }
 
-/* Hide all but the first tag */
+/* Tag hover: red background, white text */
+.post-card-tag:hover {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+/* Show only the first tag */
 .post-card-tags span:not(:first-child) {
   display: none;
 }
 
-.post-card-tag:hover {
-  background: var(--accent-dark);
-  border-color: transparent;
+/* --- Article Title --- */
+.post-card-title {
+  font-family: var(--font2);
+  color: white;
+  font-weight: var(--font2-bold);
+  font-size: 1.35rem;         /* Bigger font size */
+  line-height: 1.4;
+  margin: 0 0 12px 0;
+  word-wrap: break-word;      /* Allow wrapping within card */
+  overflow-wrap: break-word;  /* Safety for breaking */
+  display: block;
+  min-height: auto;           /* Allow flexible height */
 }
 
-/* Responsive adjustments */
+/* --- Excerpt --- */
+.post-card-excerpt {
+  color: white;
+  font-family: var(--font1);
+  font-size: 0.9em;
+  margin: 0 0 16px 0;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* --- Post Meta (Date and Reading Time) --- */
+.post-card-meta {
+  color: white;             /* White text */
+  font-size: 0.8em;
+  font-family: var(--font1);
+  font-weight: var(--font1-regular);
+  margin: auto 0 0 0;       /* Push to bottom */
+  white-space: nowrap;
+  display: block;
+}
+
+/* --- Format date and reading time to "Apr 20, 2021 • 5 min" --- */
+/* This part needs to be handled in your template (Liquid or other).
+   Example Liquid filter:
+   {{ post.date | date: "%b %d, %Y" }} • {{ post.reading_time }} min
+*/
+
+/* --- Post Image --- */
+.post-card-img {
+  border: none;
+  box-shadow: none;
+  border-radius: 8px;
+  max-width: 100%;
+  margin: 0 0 16px 0;
+}
+
+/* --- Responsive --- */
 @media (max-width: 768px) {
-  .recent-section-title {
-    font-size: 1.8rem;
+  .post-card-title {
+    font-size: 1.15rem;
   }
   
-  .post-card-box {
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 20px;
-    padding: 0 16px;
+  .post-card-excerpt {
+    font-size: 0.85em;
   }
   
   .post-card-img {
@@ -1539,21 +1472,33 @@ code {
 }
 
 @media (max-width: 480px) {
-  .recent-section-header {
-    margin: 32px 0 24px 0;
-    gap: 16px;
-  }
-  
-  .recent-section-title {
-    font-size: 1.6rem;
-  }
-  
   .post-card-box {
     grid-template-columns: 1fr;
-    max-width: 300px;
+    max-width: 100%;
   }
 }
 
+/* --- Light Version Fixes --- */
+.light-version .post-card-box li {
+  background: var(--background);
+  color: var(--text);
+}
+
+.light-version .post-card-title,
+.light-version .post-card-excerpt,
+.light-version .post-card-meta {
+  color: var(--text); /* Dark text in light mode */
+}
+
+.light-version .post-card-tag {
+  background: var(--accent);
+  color: white;
+  border: none;
+}
+
+.light-version .recent-section-title {
+  color: var(--accent-dark);
+}
 
 /* 🚨 END: OLD POST CARD STYLES - REPLACE UP TO HERE 🚨 */
 
