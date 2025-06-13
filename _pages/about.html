@@ -10,33 +10,27 @@ permalink: about:output_ext
   <div class="about-container">
     <section class="about-header">
       <div class="author-image-container">
-        <a href='{{ site.website }}'><img src="{{ relativebase }}/assets/img/{% if site.author-pic %}{{site.author-pic}}{% endif %}" alt="{{site.author}}"></a>
+        <img src="{{ relativebase }}/assets/img/me.png" alt="{{ site.data.about.name }}">
       </div>
-      <h3>{{site.author}}</h3>
-      <p class="subtitle">{{site.about-author}}</p>
+      <h3>{{ site.data.about.name }}</h3>
+      <p class="subtitle">{{ site.data.about.subtitle }}</p>
     </section>
+
+    <section class="page-content">
+      {% for section in site.data.about.sections %}
+        <h2 class="page-subtitle">{{ section.title }}</h2>
+        {% for paragraph in section.paragraphs %}
+          <p>{{ paragraph | markdownify }}</p>
+        {% endfor %}
+      {% endfor %}
+    </section>
+
     <section class="about-body">
       <ul class="contact-list">
-      {% if site.twitter %}
-        <li class="twitter"><a class="twitter" href="https://twitter.com/{{site.twitter}}" target="_blank"><i class="fa fa-twitter"></i></a></li>
-      {% endif %}
-      {% if site.linkedin %}
-        <li class="linkedin"><a class="linkedin" href="https://in.linkedin.com/in/{{site.linkedin}}" target="_blank"><i class="fa fa-linkedin"></i></a></li>
-      {% endif %}
-      {% if site.github %}
-        <li class="github"><a class="github" href="https://github.com/{{site.github}}" target="_blank"><i class="fa fa-github"></i></a></li>
-      {% endif %}
-      {% if site.email %}
-        <li class="email"><a class="email" href="mailto:{{site.email}}"><i class="fa fa-envelope-o"></i></a></li>
-      {% endif %}
-      {% if site.bandcamp %}
-        <li class="bandcamp"><a class="bandcamp" href="https://{{site.bandcamp}}.bandcamp.com" target="_blank"><i class="fa fa-bandcamp" aria-hidden="true"></i></a></li>
-      {% endif %}
-      {% if site.stackoverflow %}
-      <li class="stackoverflow"><a class="stackoverflow" href="https://stackoverflow.com/users/{{site.stackoverflow}}" target="_blank">
-        <i class="fa fa-stack-overflow" aria-hidden="true"></i></a></li>
-      {% endif %}
+        {% if site.twitter %}<li class="twitter"><a class="twitter" href="https://twitter.com/{{site.twitter}}" target="_blank"><i class="fa fa-twitter"></i></a></li>{% endif %}
+        {% if site.github %}<li class="github"><a class="github" href="https://github.com/{{site.github}}" target="_blank"><i class="fa fa-github"></i></a></li>{% endif %}
+        {% if site.email %}<li class="email"><a class="email" href="mailto:{{site.email}}"><i class="fa fa-envelope-o"></i></a></li>{% endif %}
       </ul>
-    </section> <!-- End About Body-->
-  </div> <!-- End About Container -->
-</div> <!-- End Small Wrapper -->
+    </section>
+  </div>
+</div>
