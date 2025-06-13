@@ -3,34 +3,37 @@ layout: menu-page
 title: About
 permalink: about:output_ext
 ---
+
 {% include calculate_relative_base.html %}
 {% include escape-404.html %}
 
 <div class="small-wrapper">
   <div class="about-container">
-    <section class="about-header">
-      <div class="author-image-container">
-        <img src="{{ relativebase }}/assets/img/me.png" alt="{{ site.data.about.name }}">
-      </div>
-      <h3>{{ site.data.about.name }}</h3>
-      <p class="subtitle">{{ site.data.about.subtitle }}</p>
-    </section>
 
-    <section class="page-content">
-      {% for section in site.data.about.sections %}
-        <h2 class="page-subtitle">{{ section.title }}</h2>
-        {% for paragraph in section.paragraphs %}
-          <p>{{ paragraph | markdownify }}</p>
-        {% endfor %}
+    {% assign intro = site.data.about.sections[0] %}
+    <section class="about-hero">
+      <h1 class="page-title">{{ intro.title }}</h1>
+      <p class="page-subtitle">{{ site.data.about.subtitle }}</p>
+      <hr class="gold-line" />
+      {% for p in intro.paragraphs %}
+        <p class="about-paragraph">{{ p }}</p>
       {% endfor %}
     </section>
 
-    <section class="about-body">
-      <ul class="contact-list">
-        {% if site.twitter %}<li class="twitter"><a class="twitter" href="https://twitter.com/{{site.twitter}}" target="_blank"><i class="fa fa-twitter"></i></a></li>{% endif %}
-        {% if site.github %}<li class="github"><a class="github" href="https://github.com/{{site.github}}" target="_blank"><i class="fa fa-github"></i></a></li>{% endif %}
-        {% if site.email %}<li class="email"><a class="email" href="mailto:{{site.email}}"><i class="fa fa-envelope-o"></i></a></li>{% endif %}
-      </ul>
+    {% assign align = site.data.about.sections[1] %}
+    <section class="about-icons">
+      <h2 class="section-title">{{ align.title }}</h2>
+      <p class="section-subtitle">{{ align.subtitle }}</p>
+
+      <div class="icon-row">
+        {% for icon in align.icons %}
+        <div class="icon-col">
+          <img src="{{ '/assets/img/' | append: icon.img | relative_url }}" alt="{{ icon.name }}" class="icon-img">
+          <p class="icon-label">{{ icon.name }}</p>
+        </div>
+        {% endfor %}
+      </div>
     </section>
+
   </div>
 </div>
