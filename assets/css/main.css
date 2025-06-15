@@ -2258,3 +2258,107 @@ html[data-theme="dark"] .post-card-tag:hover {
   font-weight: bold;
   color: var(--text);
 }
+
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   🪐 HOMEPAGE — LATEST EXPLORATIONS SECTION
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+/* Adds spacing and visual alignment to the section header */
+.recent-section-header {
+  display: flex;                       /* Horizontal line – Title – Horizontal line */
+  align-items: center;
+  justify-content: center;
+  gap: 22px;                           /* Space between lines and title */
+  margin: 48px 0 32px 0;               /* Top and bottom spacing around the header */
+}
+
+/* The horizontal lines that frame the section title */
+.recent-section-line {
+  flex: 1;
+  border: none;
+  border-top: 1.5px solid var(--grey5);  /* Soft neutral color */
+  min-width: 60px;
+  max-width: 300px;
+  opacity: 0.8;
+  margin: 0;
+}
+
+/* The main section title: “Latest Explorations” */
+.recent-section-title {
+  font-family: 'Times New Roman', Times, serif; /* Old-school academic feel */
+  font-size: 2rem;
+  font-weight: bold;
+  font-style: italic;
+  color: var(--text);
+  text-align: center;
+  letter-spacing: 0.03em;
+  margin: 0 0.2em;
+  white-space: nowrap;
+}
+
+/* The subtitle under the section title */
+.section-subline {
+  text-align: center;
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--grey2);
+  margin-top: -20px;                   /* Pulls closer to the title */
+  margin-bottom: 32px;                /* Adds space before post grid */
+}
+
+/* The full post grid — 3–4 items in a row depending on screen size */
+.post-card-box {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;                           /* Space between cards */
+  list-style: none;
+  padding: 0;
+  margin: 0 0 48px;
+}
+
+/* Each individual post card */
+.post-card-box li {
+  background: var(--background);
+  padding: 24px;
+  border-radius: 16px;
+  border: 1px solid var(--grey5);      /* Adds visual structure */
+  transition: all 0.3s ease;
+}
+
+.post-card-box li:hover {
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+}
+
+/* The clickable wrapper around each post */
+.post-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+/* Post title */
+.post-card-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+
+/* Date and read time */
+.post-card-meta {
+  font-size: 0.8rem;
+  color: var(--grey2);
+  margin-bottom: 0.8em;
+}
+
+/* Tag bubble */
+.post-card-tag {
+  display: inline-block;
+  background: var(--grey5);
+  border-radius: 12px;
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  font-family: var(--font2);
+  font-weight: var(--font2-regular);
+  color: var(--grey1);
+}
