@@ -8,15 +8,39 @@ layout: home-page
   <!-- YouTube player, muted so browsers will autoplay and loop -->
   <iframe
     id="yt-player"
-    src="https://www.youtube.com/embed/UjEngEpiJKo
-      ?autoplay=1
-      &mute=1
-      &enablejsapi=1
-      &loop=1
-      &playlist=UjEngEpiJKo"
+    src="https://www.youtube.com/embed/UjEngEpiJKo?autoplay=1&mute=1&enablejsapi=1&loop=1&playlist=UjEngEpiJKo"
     allow="autoplay; fullscreen; encrypted-media; gyroscope; picture-in-picture; web-share"
     allowfullscreen>
   </iframe>
 </div>
 
-{% include recent-post.html %}
+<!-- Latest Explorations Header -->
+<div class="recent-section-header">
+  <hr class="recent-section-line" />
+  <h2 class="recent-section-title">Latest Explorations</h2>
+  <hr class="recent-section-line" />
+</div>
+<p class="section-subline">Rabbit holes I’ve wandered down recently.</p>
+
+<!-- Post Grid -->
+<ul class="post-card-box">
+  {% for post in site.posts limit:4 %}
+    {% if post.title %}
+    <li>
+      <a class="post-card-link" href="{{ post.url | relative_url }}">
+        <div class="post-card-info">
+          <h3 class="post-card-title">{{ post.title }}</h3>
+          <p class="post-card-meta">{{ post.date | date: "%b %d, %Y" }} • {{ post.read_time | default: "5" }} min read</p>
+          {% if post.tags %}
+            <div class="post-card-tags">
+              {% for tag in post.tags limit:1 %}
+              <span class="post-card-tag">{{ tag }}</span>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+      </a>
+    </li>
+    {% endif %}
+  {% endfor %}
+</ul>
