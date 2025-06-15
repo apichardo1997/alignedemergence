@@ -4,36 +4,16 @@ title: About
 permalink: about:output_ext
 ---
 
-{% include calculate_relative_base.html %}
-{% include escape-404.html %}
+<h2>Subtitle test:</h2>
+<p>{{ site.data.about.subtitle }}</p>
 
-<div class="small-wrapper">
-  <div class="about-container">
+<h2>First section title:</h2>
+<p>{{ site.data.about.sections[0].title }}</p>
 
-    {% assign intro = site.data.about.sections[0] %}
-    <section class="about-hero">
-      <h1 class="page-title">{{ intro.title }}</h1>
-      <p class="page-subtitle">{{ site.data.about.subtitle }}</p>
-      <hr class="gold-line" />
-      {% for p in intro.paragraphs %}
-        <p class="about-paragraph">{{ p }}</p>
-      {% endfor %}
-    </section>
+<h2>First paragraph (manual):</h2>
+<p>{{ site.data.about.sections[0].paragraphs[0] }}</p>
 
-    {% assign align = site.data.about.sections[1] %}
-    <section class="about-icons">
-      <h2 class="section-title">{{ align.title }}</h2>
-      <p class="section-subtitle">{{ align.subtitle }}</p>
-
-      <div class="icon-row">
-        {% for icon in align.icons %}
-        <div class="icon-col">
-          <img src="{{ '/assets/img/' | append: icon.img | relative_url }}" alt="{{ icon.name }}" class="icon-img">
-          <p class="icon-label">{{ icon.name }}</p>
-        </div>
-        {% endfor %}
-      </div>
-    </section>
-
-  </div>
-</div>
+<h2>Loop test:</h2>
+{% for p in site.data.about.sections[0].paragraphs %}
+  <p>{{ p }}</p>
+{% endfor %}
