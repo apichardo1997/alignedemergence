@@ -2404,3 +2404,23 @@ html[data-theme="dark"] .post-card-tag:hover {
     margin-top: 2rem;
   }
 }
+html {
+  background-color: #000 !important;
+  color: var(--text) !important;
+}
+
+html[data-theme] {
+  --accent:       #e3b877;
+  --accent-dark:  #a0865e;
+  --main:         #5F8081;
+  --main-dim:     #202020;
+  --text:         #f0f0f0;
+  --grey1:        #aaa;
+  --grey2:        #888;
+  --grey3:        #555;
+  --grey4:        #333;
+  --grey5:        #1a1a1a;
+  --background:   #000000;
+  --shadow:       rgba(0,0,0,.6);
+  --github:       #f0f0f0;
+}
